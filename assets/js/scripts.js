@@ -252,89 +252,167 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-// Инициализация слайдера "reported"
-if (document.querySelector("#explore")) {
-  new Swiper("#explore", {
-    observer: true,
-    observeParents: true,
-    loop: true,
-    // autoplay: {
-    //   delay: 3000,
-    //   disableOnInteraction: false,
-    // },
-    pagination: {
-      el: ".explore-pagination",
-      clickable: true,
-    },
-    navigation: {
-      nextEl: ".explore-button-next",
-      prevEl: ".explore-button-prev",
-    },
-    on: {
-      slideChangeTransitionStart: function () {
-        // Добавляем прозрачность для всех слайдов
-        const slides = document.querySelectorAll('#explore .swiper-slide');
-        slides.forEach((slide) => {
-          // Проверяем активный, следующий и предыдущий слайды
-          if (
-            slide.classList.contains('swiper-slide-active') || // Активный
-            slide.classList.contains('swiper-slide-prev') || // Предыдущий
-            slide.classList.contains('swiper-slide-next') // Следующий
-          ) {
-            slide.style.opacity = 1; // Полностью видимые
-          } else {
-            slide.style.opacity = 0.5; // Затемненные
-          }
-        });
+  if (document.querySelector("#gallery_one")) {
+    new Swiper("#gallery_one", {
+      observer: true,
+      observeParents: true,
+      loop: true,
+      autoplay: {
+        delay: 2000,
+        disableOnInteraction: false,
+        reverseDirection: true, // Слайдер движется в обратную сторону
       },
-    },
-    breakpoints: {
-      320: {
-        slidesPerView: 1.5, // Показываем 8 слайдов
-        spaceBetween: 10, // Расстояние между слайдами
-        centeredSlides: false, // Центрирование активного слайда
+      pagination: {
+        el: ".reported-pagination",
+        clickable: true,
       },
-      561: {
-        slidesPerView: 2, // Показываем 8 слайдов
-        spaceBetween: 10, // Расстояние между слайдами
-        centeredSlides: true, // Центрирование активного слайда
+      navigation: {
+        nextEl: ".reported-button-next",
+        prevEl: ".reported-button-prev",
       },
-      768: {
-        slidesPerView: 3, // Показываем 8 слайдов
-        spaceBetween: 10, // Расстояние между слайдами
-        centeredSlides: true, // Центрирование активного слайда
+      breakpoints: {
+        320: {
+          slidesPerView: 2, // Один полный слайд и куски по бокам
+        },
+        560: {
+          slidesPerView: 3, // Один полный слайд и куски по бокам
+        },
+        768: {
+          slidesPerView: 4, // Один полный слайд и куски по бокам
+        },
+        1024: {
+          slidesPerView: 5, // Один полный слайд и куски по бокам
+        },
+        1281: {
+          slidesPerView: 7, // Один полный слайд и куски по бокам
+        },
       },
-      1024: {
-        slidesPerView: 4, // Показываем 8 слайдов
-        spaceBetween: 10, // Расстояние между слайдами
-        centeredSlides: true, // Центрирование активного слайда
-      },
-      1281: {
-        slidesPerView: 5, // Показываем 8 слайдов
-        spaceBetween: 20, // Расстояние между слайдами
-        centeredSlides: true, // Центрирование активного слайда
-      },
-      1601: {
-        slidesPerView: 7, // Показываем 8 слайдов
-        spaceBetween: 30, // Расстояние между слайдами
-        centeredSlides: true, // Центрирование активного слайда
-      },
-    },
-  });
+    });
+  }
 
-  // Устанавливаем начальную прозрачность для слайдов при загрузке
-  document.querySelectorAll('#explore .swiper-slide').forEach((slide) => {
-    if (
-      slide.classList.contains('swiper-slide-active') || // Активный
-      slide.classList.contains('swiper-slide-prev') || // Предыдущий
-      slide.classList.contains('swiper-slide-next') // Следующий
-    ) {
-      slide.style.opacity = 1; // Полностью видимые
-    } else {
-      slide.style.opacity = 0.5; // Затемненные
-    }
-  });
-}
+  // Нижний слайдер — движение влево
+  if (document.querySelector("#gallery_two")) {
+    new Swiper("#gallery_two", {
+      observer: true,
+      observeParents: true,
+      loop: true,
+      autoplay: {
+        delay: 2000,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: ".reported-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".reported-button-next",
+        prevEl: ".reported-button-prev",
+      },
+      breakpoints: {
+
+        320: {
+          slidesPerView: 2, // Один полный слайд и куски по бокам
+        },
+        560: {
+          slidesPerView: 3, // Один полный слайд и куски по бокам
+        },
+        768: {
+          slidesPerView: 4, // Один полный слайд и куски по бокам
+        },
+        1024: {
+          slidesPerView: 5, // Один полный слайд и куски по бокам
+        },
+        1281: {
+          slidesPerView: 7, // Один полный слайд и куски по бокам
+        },
+      },
+    });
+  }
+
+
+  // Инициализация слайдера "reported"
+  if (document.querySelector("#explore")) {
+    new Swiper("#explore", {
+      observer: true,
+      observeParents: true,
+      loop: true,
+      // autoplay: {
+      //   delay: 3000,
+      //   disableOnInteraction: false,
+      // },
+      pagination: {
+        el: ".explore-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".explore-button-next",
+        prevEl: ".explore-button-prev",
+      },
+      on: {
+        slideChangeTransitionStart: function () {
+          // Добавляем прозрачность для всех слайдов
+          const slides = document.querySelectorAll('#explore .swiper-slide');
+          slides.forEach((slide) => {
+            // Проверяем активный, следующий и предыдущий слайды
+            if (
+              slide.classList.contains('swiper-slide-active') || // Активный
+              slide.classList.contains('swiper-slide-prev') || // Предыдущий
+              slide.classList.contains('swiper-slide-next') // Следующий
+            ) {
+              slide.style.opacity = 1; // Полностью видимые
+            } else {
+              slide.style.opacity = 0.5; // Затемненные
+            }
+          });
+        },
+      },
+      breakpoints: {
+        320: {
+          slidesPerView: 1.5, // Показываем 8 слайдов
+          spaceBetween: 10, // Расстояние между слайдами
+          centeredSlides: false, // Центрирование активного слайда
+        },
+        561: {
+          slidesPerView: 2, // Показываем 8 слайдов
+          spaceBetween: 10, // Расстояние между слайдами
+          centeredSlides: true, // Центрирование активного слайда
+        },
+        768: {
+          slidesPerView: 3, // Показываем 8 слайдов
+          spaceBetween: 10, // Расстояние между слайдами
+          centeredSlides: true, // Центрирование активного слайда
+        },
+        1024: {
+          slidesPerView: 4, // Показываем 8 слайдов
+          spaceBetween: 10, // Расстояние между слайдами
+          centeredSlides: true, // Центрирование активного слайда
+        },
+        1281: {
+          slidesPerView: 5, // Показываем 8 слайдов
+          spaceBetween: 20, // Расстояние между слайдами
+          centeredSlides: true, // Центрирование активного слайда
+        },
+        1601: {
+          slidesPerView: 7, // Показываем 8 слайдов
+          spaceBetween: 30, // Расстояние между слайдами
+          centeredSlides: true, // Центрирование активного слайда
+        },
+      },
+    });
+
+    // Устанавливаем начальную прозрачность для слайдов при загрузке
+    document.querySelectorAll('#explore .swiper-slide').forEach((slide) => {
+      if (
+        slide.classList.contains('swiper-slide-active') || // Активный
+        slide.classList.contains('swiper-slide-prev') || // Предыдущий
+        slide.classList.contains('swiper-slide-next') // Следующий
+      ) {
+        slide.style.opacity = 1; // Полностью видимые
+      } else {
+        slide.style.opacity = 0.5; // Затемненные
+      }
+    });
+  }
 
 
 
@@ -353,20 +431,41 @@ function updateStars() {
   const stars = document.querySelectorAll('.mark .filled'); // Находим внутренние блоки для заполнения
 
   stars.forEach((star, index) => {
-      if (index < Math.floor(count)) {
-          // Полностью закрашенные звёзды
-          star.style.width = "100%";
-      } else if (index === Math.floor(count)) {
-          // Частично закрашенная звезда
-          const percentage = (count - Math.floor(count)) * 100;
-          star.style.width = `${percentage}%`;
-      } else {
-          // Пустые звёзды
-          star.style.width = "0%";
-      }
+    if (index < Math.floor(count)) {
+      // Полностью закрашенные звёзды
+      star.style.width = "100%";
+    } else if (index === Math.floor(count)) {
+      // Частично закрашенная звезда
+      const percentage = (count - Math.floor(count)) * 100;
+      star.style.width = `${percentage}%`;
+    } else {
+      // Пустые звёзды
+      star.style.width = "0%";
+    }
   });
 }
 
 // Вызываем функцию для обновления звёзд
 updateStars();
 // mark
+
+//faq
+// Находим все элементы с классом .faq-question
+const faqItems = document.querySelectorAll('.faq__item');
+
+// Добавляем обработчик события на каждый элемент
+faqItems.forEach(item => {
+  const question = item.querySelector('.faq__question');
+  question.addEventListener('click', () => {
+    // Закрываем все ответы перед открытием нового
+    faqItems.forEach(i => {
+      if (i !== item) {
+        i.classList.remove('active');
+      }
+    });
+
+    // Переключаем состояние (открыть/закрыть)
+    item.classList.toggle('active');
+  });
+});
+//faq
