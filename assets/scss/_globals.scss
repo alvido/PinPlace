@@ -3,28 +3,22 @@ html {
 }
 
 body {
-    @include fluid-text(16, 16);
-    display: flex;
-    flex-direction: column;
-
     color: var(--color-black);
     background: var(--color-white);
 
     font-family: var(--font-family-base);
+    font-size: 16px;
     font-weight: 400;
-    line-height: 1.25;
+    line-height: 1.5;
+    letter-spacing: 0.25px;
 
     &.lock {
-        max-height: 100vh;
         overflow: hidden;
     }
 }
 
 main {
-    overflow: hidden;
     flex: 1;
-    display: flex;
-    padding: 20px;
 }
 
 a,
@@ -49,13 +43,17 @@ h6 {
 }
 
 h1 {
-    @include fluid-text(42, 30);
-    font-weight: 400
+    line-height: 1.2;
+    @include fluid-text(44, 20);
+    font-weight: 700
 }
 
 h2 {
-    @include fluid-text(30, 24);
-    font-weight: 400
+    max-width: 666px;
+    margin: 0 auto;
+    @include fluid-text(32, 26);
+    font-weight: 700;
+    text-align: center
 }
 
 h3 {
@@ -64,9 +62,9 @@ h3 {
 }
 
 h4 {
-    @include fluid-text(16, 20);
+    font-size: 16px;
 }
 
 h5 {
-    @include fluid-text(14, 14);
+    font-size: 16px;
 }

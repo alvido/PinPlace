@@ -1,12 +1,11 @@
 .navigation {
     @include flex-center;
-    gap: 50px;
 
-    @include mobile {
+    @include tablet {
         padding: 40px 24px;
         position: absolute;
-        top: -1000%;
-        left: 0;
+        left: -100%;
+        top: 0;
         z-index: 1;
         width: 100%;
         height: 100vh;
@@ -15,22 +14,61 @@
         background: var(--color-white);
 
         &.navigation--active {
-            top: 100%;
+            left: 0;
             opacity: 1;
         }
     }
 
     &__list {
+        position: relative;
         @include flex-center;
-        gap: 60px;
+        gap: 30px;
+
+        @include tablet {
+            flex-direction: column;
+        }
 
         & li {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+
+            &.menu-item-has-children {
+
+                &::after {
+                    content: "";
+                    display: inline-block;
+                    min-width: 16px;
+                    height: 16px;
+                    background-color: var(--color-black);
+                    /* Начальный цвет */
+                    mask: url(../images/icons/chevron.svg) no-repeat center;
+                    -webkit-mask: url(../images/icons/chevron.svg) no-repeat center;
+                    mask-size: contain;
+                    -webkit-mask-size: contain;
+                    -webkit-transition: background-color var(--transition-duration);
+                    /* Плавный переход */
+                    transition: var(--transition-duration);
+                }
+                
+                @include hover {
+                    &::after {
+                        background-color: var(--color-green);
+                        rotate: 180deg;
+                    }
+                }
+            }
+
             & a {
                 position: relative;
                 display: block;
+                font-size: 14px;
                 font-weight: 500;
+                line-height: 1.2;
+                letter-spacing: 2px;
+                text-transform: uppercase;
 
-                &::after{
+                &::before {
                     content: '';
                     position: absolute;
                     left: 50%;
@@ -38,16 +76,37 @@
                     translate: -50% 0;
                     width: 0;
                     height: 2px;
-                    background: var(--color-black);
+                    background: var(--color-green);
                     transition-duration: var(--transition-duration);
                 }
 
                 @include hover {
-                    color: var(--color-black);
+                    color: var(--color-green);
 
-                    &::after {
+                    &::before {
                         width: 100%;
                     }
+                }
+            }
+        }
+
+        & .sub-menu {
+            width: 100%;
+            display: none;
+            padding: 20px;
+            position: absolute;
+            flex-wrap: wrap;
+            grid-template-columns: repeat(4,1fr);
+            gap: 10px 30px;
+            left: 0;
+            top: 100%;
+            z-index: 2;
+            background: var(--color-gray-light);
+            border-radius: var(--border-radius-small);
+
+            & li {
+                & a {
+                    padding: 10px 0;
                 }
             }
         }

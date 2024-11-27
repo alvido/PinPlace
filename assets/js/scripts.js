@@ -49,3 +49,324 @@ $(document).ready(function () {
   }
 
 });
+
+//
+
+//search
+function toggleSearch() {
+  const searchOpen = document.querySelector('.search__open');
+  const searchForm = document.querySelector('.aws-container');
+  searchOpen.classList.toggle('search--close');
+  searchForm.classList.toggle('search--active');
+}
+
+// Закрытие мини-корзины при клике вне области
+document.addEventListener('click', function (event) {
+  const searchForm = document.querySelector('.aws-container');
+  const searchOpen = document.querySelector('.icon.search__open');
+  if (!searchForm.contains(event.target) && !searchOpen.contains(event.target)) {
+    searchForm.classList.remove('search--active');
+    searchOpen.classList.remove('search--close');
+  }
+});
+//search
+
+//
+document.addEventListener("DOMContentLoaded", function () {
+  // Находим все элементы меню с подменю
+  const menuItems = document.querySelectorAll(".menu-item-has-children");
+
+  // Обрабатываем клик по каждому элементу меню
+  menuItems.forEach(item => {
+    item.addEventListener("click", function (e) {
+
+      // Убираем класс 'active' у всех элементов
+      if (this.classList.contains("active")) {
+        this.classList.remove("active");
+      } else {
+        menuItems.forEach(el => {
+          el.classList.remove("active");
+          const openSubmenu = el.querySelector(".sub-menu");
+          if (openSubmenu) {
+          }
+        });
+
+        this.classList.add("active");
+      }
+
+
+      // Находим подменю внутри текущего элемента
+      const submenu = this.querySelector(".sub-menu");
+
+      // Если у элемента есть подменю, управляем его видимостью
+      if (submenu) {
+        // Если подменю открыто, скрываем его
+        if (submenu.classList.contains("show")) {
+          fadeOut(submenu);
+        } else {
+          // Скрываем все открытые подменю
+          document.querySelectorAll(".sub-menu.show").forEach(openSubmenu => {
+            fadeOut(openSubmenu);
+          });
+          // Показываем текущее подменю
+          fadeIn(submenu);
+        }
+
+      } else {
+        // Если у элемента нет подменю, просто скрываем все открытые подменю
+        document.querySelectorAll(".sub-menu.show").forEach(openSubmenu => {
+          fadeOut(openSubmenu);
+        });
+      }
+    });
+  });
+
+  // Закрытие подменю при клике вне области навигации
+  document.addEventListener("click", function (e) {
+    if (!e.target.closest(".menu-item-has-children")) {
+      // Убираем класс 'active' у всех элементов меню
+      menuItems.forEach(item => {
+        item.classList.remove("active");
+      });
+      // Закрываем все подменю
+      document.querySelectorAll(".sub-menu.show").forEach(submenu => {
+        fadeOut(submenu);
+      });
+    }
+  });
+
+  // Функция для анимации fadeIn
+  function fadeIn(element) {
+    element.style.display = "flex"; // Или любой другой стиль отображения
+    setTimeout(() => {
+      element.classList.add("show");
+    }, 10);
+  }
+
+  // Функция для анимации fadeOut
+  function fadeOut(element) {
+    element.classList.remove("show");
+    setTimeout(() => {
+      element.style.display = "none";
+    }, 300); // Тайм-аут соответствует длительности анимации
+  }
+});
+
+//
+
+//swiper
+document.addEventListener("DOMContentLoaded", function () {
+  // Функция для инициализации слайдера
+  function initSwiper(swiperElement) {
+    new Swiper(swiperElement, {
+      observer: true,
+      observeParents: true,
+      scrollbar: {
+        el: '.swiper-scrollbar',
+        draggable: true, // Сделает скроллбар перетаскиваемым
+      },
+      spaceBetween: 24,
+      breakpoints: {
+        320: {
+          slidesPerView: 1.2,
+        },
+        561: {
+          slidesPerView: 2,
+        },
+        768: {
+          slidesPerView: 3,
+        },
+        1024: {
+          slidesPerView: 4,
+        },
+      },
+    });
+  }
+
+  // Инициализация слайдера "customer"
+  if (document.querySelector("#product")) {
+    new Swiper("#product", {
+      observer: true,
+      observeParents: true,
+      loop: true,
+      // autoplay: {
+      //   delay: 3000,
+      //   disableOnInteraction: false,
+      // },
+      pagination: {
+        el: ".product-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".product-button-next",
+        prevEl: ".product-button-prev",
+      },
+      breakpoints: {
+        320: {
+          slidesPerView: 1.4, // Один полный слайд и куски по бокам
+          spaceBetween: 10, // Расстояние между слайдами
+          centeredSlides: true, // Центрирование текущего слайда
+        },
+        561: {
+          slidesPerView: 2,
+          spaceBetween: 10,
+          centeredSlides: false, // Центрирование отключаем
+        },
+        768: {
+          slidesPerView: 3,
+          spaceBetween: 20,
+        },
+        1024: {
+          slidesPerView: 4,
+          spaceBetween: 30,
+        },
+      },
+    });
+  }
+
+  // Инициализация слайдера "reported"
+  if (document.querySelector("#reported")) {
+    new Swiper("#reported", {
+      observer: true,
+      observeParents: true,
+      loop: true,
+      // autoplay: {
+      //   delay: 3000,
+      //   disableOnInteraction: false,
+      // },
+      pagination: {
+        el: ".reported-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".reported-button-next",
+        prevEl: ".reported-button-prev",
+      },
+      breakpoints: {
+        320: {
+          slidesPerView: 1, // Один полный слайд и куски по бокам
+          spaceBetween: 10, // Расстояние между слайдами
+          centeredSlides: true, // Центрирование текущего слайда
+        },
+      },
+    });
+  }
+
+// Инициализация слайдера "reported"
+if (document.querySelector("#explore")) {
+  new Swiper("#explore", {
+    observer: true,
+    observeParents: true,
+    loop: true,
+    // autoplay: {
+    //   delay: 3000,
+    //   disableOnInteraction: false,
+    // },
+    pagination: {
+      el: ".explore-pagination",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".explore-button-next",
+      prevEl: ".explore-button-prev",
+    },
+    on: {
+      slideChangeTransitionStart: function () {
+        // Добавляем прозрачность для всех слайдов
+        const slides = document.querySelectorAll('#explore .swiper-slide');
+        slides.forEach((slide) => {
+          // Проверяем активный, следующий и предыдущий слайды
+          if (
+            slide.classList.contains('swiper-slide-active') || // Активный
+            slide.classList.contains('swiper-slide-prev') || // Предыдущий
+            slide.classList.contains('swiper-slide-next') // Следующий
+          ) {
+            slide.style.opacity = 1; // Полностью видимые
+          } else {
+            slide.style.opacity = 0.5; // Затемненные
+          }
+        });
+      },
+    },
+    breakpoints: {
+      320: {
+        slidesPerView: 1.5, // Показываем 8 слайдов
+        spaceBetween: 10, // Расстояние между слайдами
+        centeredSlides: false, // Центрирование активного слайда
+      },
+      561: {
+        slidesPerView: 2, // Показываем 8 слайдов
+        spaceBetween: 10, // Расстояние между слайдами
+        centeredSlides: true, // Центрирование активного слайда
+      },
+      768: {
+        slidesPerView: 3, // Показываем 8 слайдов
+        spaceBetween: 10, // Расстояние между слайдами
+        centeredSlides: true, // Центрирование активного слайда
+      },
+      1024: {
+        slidesPerView: 4, // Показываем 8 слайдов
+        spaceBetween: 10, // Расстояние между слайдами
+        centeredSlides: true, // Центрирование активного слайда
+      },
+      1281: {
+        slidesPerView: 5, // Показываем 8 слайдов
+        spaceBetween: 20, // Расстояние между слайдами
+        centeredSlides: true, // Центрирование активного слайда
+      },
+      1601: {
+        slidesPerView: 7, // Показываем 8 слайдов
+        spaceBetween: 30, // Расстояние между слайдами
+        centeredSlides: true, // Центрирование активного слайда
+      },
+    },
+  });
+
+  // Устанавливаем начальную прозрачность для слайдов при загрузке
+  document.querySelectorAll('#explore .swiper-slide').forEach((slide) => {
+    if (
+      slide.classList.contains('swiper-slide-active') || // Активный
+      slide.classList.contains('swiper-slide-prev') || // Предыдущий
+      slide.classList.contains('swiper-slide-next') // Следующий
+    ) {
+      slide.style.opacity = 1; // Полностью видимые
+    } else {
+      slide.style.opacity = 0.5; // Затемненные
+    }
+  });
+}
+
+
+
+  // Инициализация слайдеров для других секций
+  const sliders = document.querySelectorAll(".swiper.products");
+
+  sliders.forEach(swiper => {
+    initSwiper(swiper); // Передаем элемент swiper в функцию
+  });
+});
+// swiper
+
+// mark
+function updateStars() {
+  const count = parseFloat(document.querySelector('.count').innerText); // Получаем значение count
+  const stars = document.querySelectorAll('.mark .filled'); // Находим внутренние блоки для заполнения
+
+  stars.forEach((star, index) => {
+      if (index < Math.floor(count)) {
+          // Полностью закрашенные звёзды
+          star.style.width = "100%";
+      } else if (index === Math.floor(count)) {
+          // Частично закрашенная звезда
+          const percentage = (count - Math.floor(count)) * 100;
+          star.style.width = `${percentage}%`;
+      } else {
+          // Пустые звёзды
+          star.style.width = "0%";
+      }
+  });
+}
+
+// Вызываем функцию для обновления звёзд
+updateStars();
+// mark

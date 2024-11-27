@@ -1,35 +1,62 @@
 .burger {
     @include reset-button;
-    @include squere(40px);
+    @include squere(28px);
     @include flex-center;
+    display: none;
     position: relative;
     z-index: 2;
+
+    @include tablet {
+        display: flex;
+    }
+
+    @include phone {
+        @include squere(20px);
+    }
 
     &::before,
     &::after {
         content: '';
         display: block;
-        width: 30px;
-        height: 3px;
-        background: black;
-        border-radius: 3px;
+        width: 20px;
+        height: 2px;
+        background: var(--color-black);
 
         position: absolute;
         left: 50%;
         translate: -50% 0;
         transition: all .3s ease;
+
+        @include phone {
+            width: 14px;
+        }
     }
 
     &::before {
-        top: 13px;
+        top: 6px;
+
+        @include phone {
+            top: 4px;
+        }
     }
 
     &::after {
-        bottom: 13px;
+        bottom: 6px;
+
+        @include phone {
+            bottom: 4px;
+        }
     }
 
     & span {
         font-size: 0;
+        width: 20px;
+        height: 2px;
+        background: var(--color-black);
+
+        @include phone {
+            width: 14px;
+        }
     }
 
     &.burger--active {
@@ -49,6 +76,10 @@
         &::after {
             rotate: -45deg;
 
+        }
+
+        & span {
+            opacity: 0;
         }
     }
 }

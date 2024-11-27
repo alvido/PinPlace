@@ -1,51 +1,73 @@
 .button {
     @include reset-button;
-    min-width: 140px;
     height: var(--button-height);
-    text-transform: capitalize;
+
+    padding: 0 60px;
 
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 8px;
 
-    padding: 0 20px;
-    @include fluid-text(16, 16);
-    font-weight: 500;
+    font-size: 12px;
+    font-weight: 700;
+
     border-radius: var(--border-radius-large);
 
     color: var(--color-white);
-    background: var(--color-black);
-    border: 2px solid var(--color-black);
+    background: var(--color-green);
 
     @include hover {
-        color: var(--color-blue);
-        background: var(--color-transparent);
-
+        background: var(--color-green-light);
     }
 
     &--white {
-        min-width: 163px;
-        color: var(--color-black);
         background: var(--color-white);
-        border-color: var(--color-white);
+        border: 2px solid var(--color-green);
+        color: var(--color-black);
+        padding: 0 20px;
+        font-size: 14px;
+        line-height: 1.2;
+        letter-spacing: 0.25px;
 
         @include hover {
             color: var(--color-white);
-            background: transparent;
+            background: var(--color-green);
         }
     }
+}
 
-    &--transparent {
-        min-width: 163px;
-        font-size: 16px;
+.icon {
+    position: relative;
+    @include reset-button;
+    width: 28px;
+    height: 28px;
+
+    @include hover {
+        color: var(--color-green);
+    }
+
+    @include phone {
+        width: 20px;
+        height: 20px;
+    }
+
+    & span {
+        position: absolute;
+        right: -4px;
+        bottom: -4px;
+        @include flex-center;
+        width: 14px;
+        height: 14px;
         color: var(--color-white);
-        background: var(--color-transparent);
-        border: 2px solid var(--color-white);
+        background: var(--color-black);
+        font-size: 9px;
+        line-height: 1;
+        border-radius: 50%;
+    }
 
-        @include hover {
-            color: var(--color-black);
-            background: var(--color-white);
-        }
+    & svg {
+        width: 100%;
+        height: 100%;
     }
 }
