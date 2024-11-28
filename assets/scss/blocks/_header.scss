@@ -29,8 +29,13 @@
 
         & .rating {
             color: var(--color-white);
+
             @include mobile {
                 display: none;
+            }
+
+            &__star {
+                color: var(--color-white);
             }
         }
 

@@ -363,14 +363,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Инициализация слайдера "reported"
   if (document.querySelector("#explore")) {
-    new Swiper("#explore", {
+    const swiper = new Swiper("#explore", {
       observer: true,
       observeParents: true,
       loop: true,
-      // autoplay: {
-      //   delay: 3000,
-      //   disableOnInteraction: false,
-      // },
       pagination: {
         el: ".explore-pagination",
         clickable: true,
@@ -380,70 +376,106 @@ document.addEventListener("DOMContentLoaded", function () {
         prevEl: ".explore-button-prev",
       },
       on: {
-        slideChangeTransitionStart: function () {
-          // Добавляем прозрачность для всех слайдов
-          const slides = document.querySelectorAll('#explore .swiper-slide');
-          slides.forEach((slide) => {
-            // Проверяем активный, следующий и предыдущий слайды
-            if (
-              slide.classList.contains('swiper-slide-active') || // Активный
-              slide.classList.contains('swiper-slide-prev') || // Предыдущий
-              slide.classList.contains('swiper-slide-next') // Следующий
-            ) {
-              slide.style.opacity = 1; // Полностью видимые
-            } else {
-              slide.style.opacity = 0.5; // Затемненные
-            }
-          });
+        slideChangeTransitionEnd: function () {
+          handleVideoPlayback();
         },
       },
       breakpoints: {
         320: {
-          slidesPerView: 1.5, // Показываем 8 слайдов
-          spaceBetween: 10, // Расстояние между слайдами
-          centeredSlides: false, // Центрирование активного слайда
+          slidesPerView: 1.5,
+          spaceBetween: 10,
+          centeredSlides: false,
         },
         561: {
-          slidesPerView: 2, // Показываем 8 слайдов
-          spaceBetween: 10, // Расстояние между слайдами
-          centeredSlides: true, // Центрирование активного слайда
+          slidesPerView: 2,
+          spaceBetween: 10,
+          centeredSlides: true,
         },
         768: {
-          slidesPerView: 3, // Показываем 8 слайдов
-          spaceBetween: 10, // Расстояние между слайдами
-          centeredSlides: true, // Центрирование активного слайда
+          slidesPerView: 3,
+          spaceBetween: 10,
+          centeredSlides: true,
         },
         1024: {
-          slidesPerView: 4, // Показываем 8 слайдов
-          spaceBetween: 10, // Расстояние между слайдами
-          centeredSlides: true, // Центрирование активного слайда
+          slidesPerView: 4,
+          spaceBetween: 10,
+          centeredSlides: true,
         },
         1281: {
-          slidesPerView: 5, // Показываем 8 слайдов
-          spaceBetween: 20, // Расстояние между слайдами
-          centeredSlides: true, // Центрирование активного слайда
+          slidesPerView: 5,
+          spaceBetween: 20,
+          centeredSlides: true,
         },
         1601: {
-          slidesPerView: 7, // Показываем 8 слайдов
-          spaceBetween: 30, // Расстояние между слайдами
-          centeredSlides: true, // Центрирование активного слайда
+          slidesPerView: 7,
+          spaceBetween: 30,
+          centeredSlides: true,
         },
       },
     });
 
-    // Устанавливаем начальную прозрачность для слайдов при загрузке
-    document.querySelectorAll('#explore .swiper-slide').forEach((slide) => {
-      if (
-        slide.classList.contains('swiper-slide-active') || // Активный
-        slide.classList.contains('swiper-slide-prev') || // Предыдущий
-        slide.classList.contains('swiper-slide-next') // Следующий
-      ) {
-        slide.style.opacity = 1; // Полностью видимые
-      } else {
-        slide.style.opacity = 0.5; // Затемненные
-      }
+    // Функция управления воспроизведением видео
+    function handleVideoPlayback() {
+      const slides = document.querySelectorAll('#explore .swiper-slide');
+      slides.forEach((slide) => {
+        const video = slide.querySelector('video');
+        const muteButton = slide.querySelector('.video-mute-button');
+
+        if (video) {
+          // Активное видео начинает воспроизведение
+          if (slide.classList.contains('swiper-slide-active')) {
+            video.play();
+          } else {
+            // Неактивные видео ставим на паузу
+            video.pause();
+            video.currentTime = 0;
+          }
+
+          // Убираем кнопку звука для неактивных слайдов
+          if (muteButton) {
+            muteButton.style.display = slide.classList.contains('swiper-slide-active') ? 'flex' : 'none';
+          }
+        }
+      });
+    }
+
+    // Инициализация воспроизведения при загрузке
+    handleVideoPlayback();
+
+    // Обработчик для кнопок звука
+    document.querySelectorAll('.video-mute-button').forEach((button) => {
+      button.addEventListener('click', (event) => {
+        const video = event.target.closest('.swiper-slide').querySelector('video');
+        const soundOnIcon = button.querySelector('.icon-sound-on');
+        const soundOffIcon = button.querySelector('.icon-sound-off');
+
+        if (video) {
+          // Переключаем звук для видео
+          video.muted = !video.muted;
+
+          // Обновляем видимость иконок
+          if (video.muted) {
+            soundOnIcon.style.display = 'none';
+            soundOffIcon.style.display = 'block';
+          } else {
+            soundOnIcon.style.display = 'block';
+            soundOffIcon.style.display = 'none';
+          }
+        }
+      });
+    });
+
+
+    // Событие: при загрузке страницы все видео запускаются без звука
+    window.addEventListener("load", () => {
+      const videos = document.querySelectorAll('#explore video');
+      videos.forEach((video) => {
+        video.muted = true; // Отключаем звук
+      });
+      handleVideoPlayback();
     });
   }
+
 
 
 

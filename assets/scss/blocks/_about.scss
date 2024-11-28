@@ -22,7 +22,6 @@
 
         @include mobile {
             gap: 20px;
-            padding: 10px;
         }
 
         &::before {
@@ -75,7 +74,6 @@
             border-radius: 14px;
 
             @include tablet {
-                width: auto;
                 max-height: 500px;
                 object-fit: cover;
                 margin: 0 auto;
@@ -277,6 +275,10 @@
             font-size: 12px;
             line-height: 1;
             letter-spacing: 0.25px;
+        }
+
+        & a {
+            display: block;
         }
     }
 

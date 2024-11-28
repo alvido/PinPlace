@@ -2,6 +2,10 @@
     position: relative;
     @include flex-center;
 
+    @include phone {
+        display: none;
+    }
+
     &__open {
         position: relative;
 

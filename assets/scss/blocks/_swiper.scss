@@ -27,6 +27,7 @@
     background: var(--color-white);
     border-radius: 50%;
     box-shadow: var(--shadow);
+    z-index: 1;
 
     @include mobile {
         border-radius: 50%;
