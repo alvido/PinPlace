@@ -19,22 +19,29 @@
         &.swipper-gallery {
             height: 540px;
             width: 100%;
+            background: var(--color-gray-light);
+
+            & .swiper-slide {
+                @include flex-center;
+                overflow: hidden;
+                border-radius: 20px;
+            }
         }
 
         &.swiper-thumb {
             height: 20%;
             box-sizing: border-box;
             padding: 10px 0;
-    
+
             & .swiper-slide {
                 width: 25%;
                 height: 100%;
                 opacity: 0.4;
-    
+
                 &-thumb-active {
                     opacity: 1;
                 }
-    
+
                 & .swiper-slide img {
                     display: block;
                     width: 100%;
@@ -46,9 +53,9 @@
     }
 
 
-    
 
-   
+
+
 
 
 

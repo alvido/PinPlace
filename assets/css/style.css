@@ -2464,6 +2464,20 @@ h5 {
 .single .swiper.swipper-gallery {
   height: 540px;
   width: 100%;
+  background: var(--color-gray-light);
+}
+.single .swiper.swipper-gallery .swiper-slide {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  overflow: hidden;
+  border-radius: 20px;
 }
 .single .swiper.swiper-thumb {
   height: 20%;
