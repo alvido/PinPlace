@@ -155,12 +155,17 @@
 
 
 .gallery {
+    padding: 60px 0 30px;
+
+    @include mobile {
+        padding: 40px 0 20px;
+    }
 
     &__slider {
-        padding: 50px 0 30px;
+        margin-top: 50px;
 
         @include mobile {
-            padding: 20px 0;
+            margin-top: 20px;
         }
     }
     & .swiper-slide {

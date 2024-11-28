@@ -1,0 +1,174 @@
+.single {
+    padding: 60px 0;
+
+    @include mobile {
+        padding: 30px 0;
+    }
+
+    & .wrapper {
+        gap: 30px;
+    }
+
+
+    .swiper {
+        width: 100%;
+        height: 300px;
+        margin-left: auto;
+        margin-right: auto;
+
+        &.swipper-gallery {
+            height: 540px;
+            width: 100%;
+        }
+
+        &.swiper-thumb {
+            height: 20%;
+            box-sizing: border-box;
+            padding: 10px 0;
+    
+            & .swiper-slide {
+                width: 25%;
+                height: 100%;
+                opacity: 0.4;
+    
+                &-thumb-active {
+                    opacity: 1;
+                }
+    
+                & .swiper-slide img {
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+        }
+    }
+
+
+    
+
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    .size-selector {
+        display: flex;
+        gap: 20px;
+    }
+
+    .size-option {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 15px;
+        width: 150px;
+        border: 2px solid #ccc;
+        border-radius: 10px;
+        text-align: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        background-color: #fff;
+    }
+
+    .size-option img {
+        width: 40px;
+        height: auto;
+        margin-bottom: 10px;
+    }
+
+    .size-option:hover {
+        border-color: #007b7f;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .size-option.active {
+        border-color: #007b7f;
+        background-color: #f0fdfa;
+    }
+
+    .size-option input {
+        display: none;
+    }
+
+    .size-option h3 {
+        font-size: 16px;
+        margin: 5px 0;
+    }
+
+    .size-option p {
+        font-size: 14px;
+        color: #555;
+        margin: 0;
+    }
+
+
+    .color-selector {
+        display: flex;
+        flex-direction: column;
+        max-width: 400px;
+        margin: auto;
+    }
+
+    .color-label {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+
+    .color-label span {
+        font-weight: bold;
+    }
+
+    .color-options {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+    }
+
+    .color-option {
+        width: 30px;
+        height: 30px;
+        border: 2px solid transparent;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: transform 0.2s, border-color 0.2s;
+        flex-shrink: 0;
+    }
+
+    .color-option:hover {
+        transform: scale(1.1);
+    }
+
+    .color-option.active {
+        border-color: #000;
+        transform: scale(1.2);
+    }
+
+
+
+}

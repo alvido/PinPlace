@@ -416,12 +416,25 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-  // Инициализация слайдеров для других секций
-  const sliders = document.querySelectorAll(".swiper.products");
-
-  sliders.forEach(swiper => {
-    initSwiper(swiper); // Передаем элемент swiper в функцию
+  var swiper = new Swiper(".swiper-thumb", {
+    loop: true,
+    spaceBetween: 10,
+    slidesPerView: 4,
+    freeMode: true,
+    watchSlidesProgress: true,
   });
+  var swiper2 = new Swiper(".swipper-gallery", {
+    loop: true,
+    spaceBetween: 10,
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    thumbs: {
+      swiper: swiper,
+    },
+  });
+
 });
 // swiper
 
@@ -469,3 +482,38 @@ faqItems.forEach(item => {
   });
 });
 //faq
+
+
+//size selector
+ // Скрипт для добавления активного класса
+ const options = document.querySelectorAll('.size-option');
+ options.forEach(option => {
+     option.addEventListener('click', () => {
+         options.forEach(opt => opt.classList.remove('active'));
+         option.classList.add('active');
+     });
+ });
+//size selector
+
+
+//color selector
+ // Логика выбора цвета
+ const colorOptions = document.querySelectorAll('.color-option');
+ const selectedColorName = document.getElementById('selected-color-name');
+ const selectedColorCircle = document.getElementById('selected-color-circle');
+
+ colorOptions.forEach(option => {
+     option.addEventListener('click', () => {
+         // Удаляем класс active со всех опций
+         colorOptions.forEach(opt => opt.classList.remove('active'));
+         
+         // Добавляем active к выбранной
+         option.classList.add('active');
+
+         // Обновляем текст и круг выбранного цвета
+         const colorName = option.getAttribute('data-color');
+         selectedColorName.textContent = colorName;
+         selectedColorCircle.style.backgroundColor = option.style.backgroundColor;
+     });
+ });
+//color selector
