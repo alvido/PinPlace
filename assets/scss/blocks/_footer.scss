@@ -194,4 +194,8 @@
         justify-content: center;
         order: 3;
     }
+
+    & img {
+        max-height: 18px;
+    }
 }

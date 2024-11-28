@@ -1,6 +1,27 @@
+.swiper-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    bottom: 15px !important;
+
+    &-bullet {
+        margin: 0 !important;
+        opacity: 1;
+        border: 2px solid var(--color-green);
+        background: var(--color-white);
+
+        &-active {
+            background: var(--color-green);
+        }
+    }
+}
+
 .swiper-button-next,
 .swiper-button-prev {
     margin: 0;
+    top: 50%;
+    translate: 0 -50%;
     width: 30px;
     height: 30px;
     background: var(--color-white);
@@ -26,4 +47,3 @@
         rotate: 180deg;
     }
 }
-

@@ -47,3 +47,38 @@
     flex-direction: column;
     align-items: flex-start;
 }
+
+ul.regular {
+    width: 100%;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    @include phone {
+    grid-template-columns: repeat(1, 1fr);
+
+    }
+
+    li {
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 7px;
+
+        &::before {
+            content: '';
+            display: block;
+            width: 14px;
+            height: 14px;
+            background: url(../images/icons/list.svg) no-repeat center / cover;
+        }
+    }
+}
+
+.title {
+    @include fluid-text(20, 16);
+    font-weight: 700;
+    line-height: 1.2;
+}

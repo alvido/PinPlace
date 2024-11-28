@@ -154,6 +154,7 @@
         }
 
         & .slider {
+            position: relative;
             width: 100%;
             background: var(--color-gray-light);
             border-radius: 14px;
@@ -168,12 +169,19 @@
                 }
             }
 
+            & .swiper-button-prev {
+                left: -15px;
+            }
+
+            & .swiper-button-next {
+                right: -15px;
+            }
 
         }
 
         & p {
             margin: 0;
-            font-size: 18px;
+            @include fluid-text(18, 14);
             font-weight: 400;
             line-height: 1.33;
             letter-spacing: 0.25px;
@@ -185,30 +193,6 @@
             }
         }
 
-        & ul:where(:not([class])) {
-            width: 100%;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-
-            li {
-                position: relative;
-                display: flex;
-                align-items: center;
-                gap: 7px;
-
-                &::before {
-                    content: '';
-                    display: block;
-                    width: 14px;
-                    height: 14px;
-                    background: url(../images/icons/list.svg) no-repeat center / cover;
-                }
-            }
-        }
-
         & .icons {
             margin-top: 10px;
             width: 100%;
@@ -216,6 +200,12 @@
             align-items: center;
             justify-content: space-between;
             gap: 12px;
+
+            @include phone {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 14px 28px;
+            }
         }
     }
 }

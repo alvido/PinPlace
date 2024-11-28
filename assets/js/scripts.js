@@ -252,6 +252,37 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+  // Инициализация слайдера "reported"
+  if (document.querySelector("#personalization")) {
+    new Swiper("#personalization", {
+      observer: true,
+      observeParents: true,
+      // loop: true,
+      // autoplay: {
+      //   delay: 3000,
+      //   disableOnInteraction: false,
+      // },
+      pagination: {
+        el: ".personalization-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".personalization-button-next",
+        prevEl: ".personalization-button-prev",
+      },
+      breakpoints: {
+        320: {
+          slidesPerView: 2, // Один полный слайд и куски по бокам
+          spaceBetween: 10, // Расстояние между слайдами
+        },
+        561: {
+          slidesPerView: 3, // Один полный слайд и куски по бокам
+          spaceBetween: 10, // Расстояние между слайдами
+        },
+      },
+    });
+  }
+
   if (document.querySelector("#gallery_one")) {
     new Swiper("#gallery_one", {
       observer: true,
@@ -422,6 +453,14 @@ document.addEventListener("DOMContentLoaded", function () {
     slidesPerView: 4,
     freeMode: true,
     watchSlidesProgress: true,
+
+    breakpoints: {
+
+      561: {
+        slidesPerView: 5, // Показываем 8 слайдов
+        spaceBetween: 14, // Расстояние между слайдами
+      },
+    },
   });
   var swiper2 = new Swiper(".swipper-gallery", {
     loop: true,
@@ -485,35 +524,68 @@ faqItems.forEach(item => {
 
 
 //size selector
- // Скрипт для добавления активного класса
- const options = document.querySelectorAll('.size-option');
- options.forEach(option => {
-     option.addEventListener('click', () => {
-         options.forEach(opt => opt.classList.remove('active'));
-         option.classList.add('active');
-     });
- });
+// Скрипт для добавления активного класса
+const options = document.querySelectorAll('.size-option');
+options.forEach(option => {
+  option.addEventListener('click', () => {
+    options.forEach(opt => opt.classList.remove('active'));
+    option.classList.add('active');
+  });
+});
 //size selector
 
 
 //color selector
- // Логика выбора цвета
- const colorOptions = document.querySelectorAll('.color-option');
- const selectedColorName = document.getElementById('selected-color-name');
- const selectedColorCircle = document.getElementById('selected-color-circle');
+// Логика выбора цвета
+const buttonPalette = document.getElementById('color-palette');
+const colorPalette = document.querySelector('.color-options');
+const colorOptions = document.querySelectorAll('.color-option');
+const selectedColorName = document.getElementById('selected-color-name');
+const selectedColorCircle = document.getElementById('selected-color-circle');
 
- colorOptions.forEach(option => {
-     option.addEventListener('click', () => {
-         // Удаляем класс active со всех опций
-         colorOptions.forEach(opt => opt.classList.remove('active'));
-         
-         // Добавляем active к выбранной
-         option.classList.add('active');
+buttonPalette.addEventListener('click', function () {
+  this.classList.toggle('active'); // Работает корректно, так как используется обычная функция
+  colorPalette.classList.toggle('show');
+});
 
-         // Обновляем текст и круг выбранного цвета
-         const colorName = option.getAttribute('data-color');
-         selectedColorName.textContent = colorName;
-         selectedColorCircle.style.backgroundColor = option.style.backgroundColor;
-     });
- });
+
+colorOptions.forEach(option => {
+  option.addEventListener('click', () => {
+    // Удаляем класс active со всех опций
+    colorOptions.forEach(opt => opt.classList.remove('active'));
+
+    // Добавляем active к выбранной
+    option.classList.add('active');
+
+    // Обновляем текст и круг выбранного цвета
+    const colorName = option.getAttribute('data-color');
+    selectedColorName.textContent = colorName;
+    selectedColorCircle.style.backgroundColor = option.style.backgroundColor;
+  });
+});
+
+
 //color selector
+
+// personalization
+const personalizationOpen = document.getElementById('personalizationButton');
+const personalizationClose = document.getElementById('personalizationClose');
+const personalizationSelector = document.querySelector('.personalization-selector');
+const personalization = document.querySelectorAll('.personalization-option');
+
+
+personalizationOpen.addEventListener('click', function () {
+  personalizationSelector.classList.add('active');
+});
+personalizationClose.addEventListener('click', function () {
+  personalizationSelector.classList.remove('active');
+});
+
+personalization.forEach(style => {
+  style.addEventListener('click', () => {
+    personalization.forEach(opt => opt.classList.remove('active'));
+    style.classList.add('active');
+  });
+});
+
+// personalization
