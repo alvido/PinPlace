@@ -378,6 +378,7 @@ document.addEventListener("DOMContentLoaded", function () {
       on: {
         slideChangeTransitionEnd: function () {
           handleVideoPlayback();
+          updateSlideOpacity();
         },
       },
       breakpoints: {
@@ -413,14 +414,14 @@ document.addEventListener("DOMContentLoaded", function () {
         },
       },
     });
-
+  
     // Функция управления воспроизведением видео
     function handleVideoPlayback() {
       const slides = document.querySelectorAll('#explore .swiper-slide');
       slides.forEach((slide) => {
         const video = slide.querySelector('video');
         const muteButton = slide.querySelector('.video-mute-button');
-
+  
         if (video) {
           // Активное видео начинает воспроизведение
           if (slide.classList.contains('swiper-slide-active')) {
@@ -430,7 +431,7 @@ document.addEventListener("DOMContentLoaded", function () {
             video.pause();
             video.currentTime = 0;
           }
-
+  
           // Убираем кнопку звука для неактивных слайдов
           if (muteButton) {
             muteButton.style.display = slide.classList.contains('swiper-slide-active') ? 'flex' : 'none';
@@ -438,21 +439,38 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       });
     }
-
-    // Инициализация воспроизведения при загрузке
+  
+    // Функция для обновления прозрачности слайдов
+    function updateSlideOpacity() {
+      const slides = document.querySelectorAll('#explore .swiper-slide');
+      slides.forEach((slide) => {
+        if (
+          slide.classList.contains('swiper-slide-active') || 
+          slide.classList.contains('swiper-slide-prev') || 
+          slide.classList.contains('swiper-slide-next')
+        ) {
+          slide.style.opacity = "1"; // Полностью видимые
+        } else {
+          slide.style.opacity = "0.5"; // Затемненные
+        }
+      });
+    }
+  
+    // Инициализация воспроизведения и затемнения при загрузке
     handleVideoPlayback();
-
+    updateSlideOpacity();
+  
     // Обработчик для кнопок звука
     document.querySelectorAll('.video-mute-button').forEach((button) => {
       button.addEventListener('click', (event) => {
         const video = event.target.closest('.swiper-slide').querySelector('video');
         const soundOnIcon = button.querySelector('.icon-sound-on');
         const soundOffIcon = button.querySelector('.icon-sound-off');
-
+  
         if (video) {
           // Переключаем звук для видео
           video.muted = !video.muted;
-
+  
           // Обновляем видимость иконок
           if (video.muted) {
             soundOnIcon.style.display = 'none';
@@ -464,8 +482,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       });
     });
-
-
+  
     // Событие: при загрузке страницы все видео запускаются без звука
     window.addEventListener("load", () => {
       const videos = document.querySelectorAll('#explore video');
@@ -473,9 +490,10 @@ document.addEventListener("DOMContentLoaded", function () {
         video.muted = true; // Отключаем звук
       });
       handleVideoPlayback();
+      updateSlideOpacity();
     });
   }
-
+  
 
 
 
