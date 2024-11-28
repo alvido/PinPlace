@@ -9,7 +9,7 @@
     &::before {
         content: '';
         position: absolute;
-        top: 60px;
+        top: 0px;
         right: 25%;
         width: 246px;
         height: 200px;
@@ -17,7 +17,6 @@
         background: url(../images/decor/explore.svg) no-repeat center / contain;
 
         @include mobile {
-            top: 40px;
             rotate: -120deg;
             right: auto;
             left: 50%;
@@ -136,6 +135,50 @@
                 @include mobile {
                     text-align: center;
                 }
+            }
+        }
+    }
+}
+
+.size {
+
+    & img {
+        margin: 60px 0;
+        border-radius: 20px;
+
+        @include mobile {
+            margin: 30px 0;
+            border-radius: 8px;
+        }
+    }
+}
+
+
+.gallery {
+    padding: 60px 0 30px;
+
+    @include mobile {
+        padding: 40px 0 20px;
+    }
+
+    &__slider {
+        margin-top: 50px;
+
+        @include mobile {
+            margin-top: 20px;
+        }
+    }
+    & .swiper-slide {
+        & img {
+            height: 400px;
+            object-fit: cover;
+
+            @include mobile {
+                height: 300px;
+            }
+
+            @include phone {
+                height: 200px;
             }
         }
     }
