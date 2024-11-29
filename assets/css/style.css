@@ -1843,6 +1843,16 @@ textarea:focus-visible {
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
 }
+@media (hover: hover) {
+  .explore .swiper-slide .buttons .icon:hover {
+    scale: 1.1;
+  }
+}
+@media (hover: none) {
+  .explore .swiper-slide .buttons .icon:active {
+    scale: 1.1;
+  }
+}
 .explore .swiper-slide .buttons .icon img {
   width: 20px;
   height: 20px;

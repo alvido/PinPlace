@@ -76,6 +76,10 @@
                 border-radius: 50%;
                 transition: all .3s ease;
 
+                @include hover {
+                    scale: 1.1;
+                }
+
                 & img {
                     width: 20px;
                     height: 20px;
