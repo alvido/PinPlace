@@ -447,17 +447,19 @@
                                 </p>
                                 <input type="text" id="name-input" placeholder="Enter text" minlength="3"
                                     maxlength="300">
-                                <button class="button">
-                                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M2.40473 6.75C2.21568 6.74981 2.03421 6.82434 1.89987 6.95736C1.76553 7.09039 1.68921 7.27111 1.68754 7.46016C1.68678 7.52568 1.69627 7.59092 1.71567 7.65352L3.53325 14.0625C3.61749 14.3619 3.79752 14.6254 4.04579 14.8127C4.29405 15 4.59686 15.1008 4.90786 15.0996H13.0922C13.4038 15.0999 13.7071 14.9989 13.9563 14.8118C14.2055 14.6248 14.3871 14.3618 14.4739 14.0625L16.2914 7.65352L16.3125 7.46016C16.3109 7.27111 16.2346 7.09039 16.1002 6.95736C15.9659 6.82434 15.7844 6.74981 15.5954 6.75H2.40473Z"
-                                            stroke="white" stroke-width="1.5" />
-                                        <path d="M5.625 6.75L9 2.25L12.375 6.75" stroke="white" stroke-width="1.5" />
-                                    </svg>
-                                    ADD TO CART
-                                </button>
+
                             </div>
+
+                            <button class="button">
+                                <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M2.40473 6.75C2.21568 6.74981 2.03421 6.82434 1.89987 6.95736C1.76553 7.09039 1.68921 7.27111 1.68754 7.46016C1.68678 7.52568 1.69627 7.59092 1.71567 7.65352L3.53325 14.0625C3.61749 14.3619 3.79752 14.6254 4.04579 14.8127C4.29405 15 4.59686 15.1008 4.90786 15.0996H13.0922C13.4038 15.0999 13.7071 14.9989 13.9563 14.8118C14.2055 14.6248 14.3871 14.3618 14.4739 14.0625L16.2914 7.65352L16.3125 7.46016C16.3109 7.27111 16.2346 7.09039 16.1002 6.95736C15.9659 6.82434 15.7844 6.74981 15.5954 6.75H2.40473Z"
+                                        stroke="white" stroke-width="1.5" />
+                                    <path d="M5.625 6.75L9 2.25L12.375 6.75" stroke="white" stroke-width="1.5" />
+                                </svg>
+                                ADD TO CART
+                            </button>
 
                             <ul class="payment__list">
                                 <li>
@@ -564,319 +566,110 @@
 
                         <div class="swiper-slide">
                             <video src="assets/video/reels.mp4"></video>
-                            <button class="video-mute-button">
-                                <!-- Иконка звука включена -->
-
-                                <svg class="icon-sound-on" width="18" height="18" viewBox="0 0 18 18" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M8.25 3.75L4.5 6.75H1.5V11.25H4.5L8.25 14.25V3.75Z" stroke="white"
-                                        stroke-linecap="round" stroke-linejoin="round" />
-                                    <path
-                                        d="M14.3025 3.69751C15.7085 5.10397 16.4984 7.01128 16.4984 9.00001C16.4984 10.9887 15.7085 12.8961 14.3025 14.3025M11.655 6.34501C12.358 7.04824 12.7529 8.00189 12.7529 8.99626C12.7529 9.99063 12.358 10.9443 11.655 11.6475"
-                                        stroke="white" stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-
-                                <!-- Иконка звука выключена -->
-                                <svg class="icon-sound-off" width="21" height="18" viewBox="0 0 21 18" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <g clip-path="url(#clip0_1_66)">
-                                        <path d="M7.25001 3.75L3.50001 6.75H0.500008V11.25H3.50001L7.25001 14.25V3.75Z"
-                                            stroke="white" stroke-linecap="round" stroke-linejoin="round" />
-                                        <path d="M16.25 6.75L11.75 11.25" stroke="white" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                        <path d="M11.75 6.75L16.25 11.25" stroke="white" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                    </g>
-                                    <defs>
-                                        <clipPath id="clip0_1_66">
-                                            <rect width="19.8783" height="18" fill="white"
-                                                transform="translate(0.773933)" />
-                                        </clipPath>
-                                    </defs>
-                                </svg>
-
-                            </button>
+                            <div class="buttons">
+                                <button class="icon">
+                                    <img src="assets/images/icons/play.svg" alt="" class="play">
+                                    <img src="assets/images/icons/pause.svg" alt="" class="pause">
+                                </button>
+                                <button class="icon sound">
+                                    <img class="sound-on" src="assets/images/icons/sound.svg" alt="">
+                                    <img class="sound-off" src="assets/images/icons/sound-off.svg" alt="">
+                                </button>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <video src="assets/video/reels2.mp4"></video>
+                            <div class="buttons">
+                                <button class="icon">
+                                    <img src="assets/images/icons/play.svg" alt="" class="play">
+                                    <img src="assets/images/icons/pause.svg" alt="" class="pause">
+                                </button>
+                                <button class="icon sound">
+                                    <img class="sound-on" src="assets/images/icons/sound.svg" alt="">
+                                    <img class="sound-off" src="assets/images/icons/sound-off.svg" alt="">
+                                </button>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <video src="assets/video/reels3.mp4"></video>
+                            <div class="buttons">
+                                <button class="icon">
+                                    <img src="assets/images/icons/play.svg" alt="" class="play">
+                                    <img src="assets/images/icons/pause.svg" alt="" class="pause">
+                                </button>
+                                <button class="icon sound">
+                                    <img class="sound-on" src="assets/images/icons/sound.svg" alt="">
+                                    <img class="sound-off" src="assets/images/icons/sound-off.svg" alt="">
+                                </button>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <video src="assets/video/reels4.mp4"></video>
+                            <div class="buttons">
+                                <button class="icon">
+                                    <img src="assets/images/icons/play.svg" alt="" class="play">
+                                    <img src="assets/images/icons/pause.svg" alt="" class="pause">
+                                </button>
+                                <button class="icon sound">
+                                    <img class="sound-on" src="assets/images/icons/sound.svg" alt="">
+                                    <img class="sound-off" src="assets/images/icons/sound-off.svg" alt="">
+                                </button>
+                            </div>
                         </div>
                         <div class="swiper-slide">
                             <video src="assets/video/reels.mp4"></video>
-                            <button class="video-mute-button">
-                                <!-- Иконка звука включена -->
-
-                                <svg class="icon-sound-on" width="18" height="18" viewBox="0 0 18 18" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M8.25 3.75L4.5 6.75H1.5V11.25H4.5L8.25 14.25V3.75Z" stroke="white"
-                                        stroke-linecap="round" stroke-linejoin="round" />
-                                    <path
-                                        d="M14.3025 3.69751C15.7085 5.10397 16.4984 7.01128 16.4984 9.00001C16.4984 10.9887 15.7085 12.8961 14.3025 14.3025M11.655 6.34501C12.358 7.04824 12.7529 8.00189 12.7529 8.99626C12.7529 9.99063 12.358 10.9443 11.655 11.6475"
-                                        stroke="white" stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-
-                                <!-- Иконка звука выключена -->
-                                <svg class="icon-sound-off" width="21" height="18" viewBox="0 0 21 18" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <g clip-path="url(#clip0_1_66)">
-                                        <path d="M7.25001 3.75L3.50001 6.75H0.500008V11.25H3.50001L7.25001 14.25V3.75Z"
-                                            stroke="white" stroke-linecap="round" stroke-linejoin="round" />
-                                        <path d="M16.25 6.75L11.75 11.25" stroke="white" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                        <path d="M11.75 6.75L16.25 11.25" stroke="white" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                    </g>
-                                    <defs>
-                                        <clipPath id="clip0_1_66">
-                                            <rect width="19.8783" height="18" fill="white"
-                                                transform="translate(0.773933)" />
-                                        </clipPath>
-                                    </defs>
-                                </svg>
-
-                            </button>
+                            <div class="buttons">
+                                <button class="icon">
+                                    <img src="assets/images/icons/play.svg" alt="" class="play">
+                                    <img src="assets/images/icons/pause.svg" alt="" class="pause">
+                                </button>
+                                <button class="icon sound">
+                                    <img class="sound-on" src="assets/images/icons/sound.svg" alt="">
+                                    <img class="sound-off" src="assets/images/icons/sound-off.svg" alt="">
+                                </button>
+                            </div>
                         </div>
                         <div class="swiper-slide">
-                            <video src="assets/video/reels.mp4"></video>
-                            <button class="video-mute-button">
-                                <!-- Иконка звука включена -->
-
-                                <svg class="icon-sound-on" width="18" height="18" viewBox="0 0 18 18" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M8.25 3.75L4.5 6.75H1.5V11.25H4.5L8.25 14.25V3.75Z" stroke="white"
-                                        stroke-linecap="round" stroke-linejoin="round" />
-                                    <path
-                                        d="M14.3025 3.69751C15.7085 5.10397 16.4984 7.01128 16.4984 9.00001C16.4984 10.9887 15.7085 12.8961 14.3025 14.3025M11.655 6.34501C12.358 7.04824 12.7529 8.00189 12.7529 8.99626C12.7529 9.99063 12.358 10.9443 11.655 11.6475"
-                                        stroke="white" stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-
-                                <!-- Иконка звука выключена -->
-                                <svg class="icon-sound-off" width="21" height="18" viewBox="0 0 21 18" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <g clip-path="url(#clip0_1_66)">
-                                        <path d="M7.25001 3.75L3.50001 6.75H0.500008V11.25H3.50001L7.25001 14.25V3.75Z"
-                                            stroke="white" stroke-linecap="round" stroke-linejoin="round" />
-                                        <path d="M16.25 6.75L11.75 11.25" stroke="white" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                        <path d="M11.75 6.75L16.25 11.25" stroke="white" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                    </g>
-                                    <defs>
-                                        <clipPath id="clip0_1_66">
-                                            <rect width="19.8783" height="18" fill="white"
-                                                transform="translate(0.773933)" />
-                                        </clipPath>
-                                    </defs>
-                                </svg>
-
-                            </button>
+                            <video src="assets/video/reels2.mp4"></video>
+                            <div class="buttons">
+                                <button class="icon">
+                                    <img src="assets/images/icons/play.svg" alt="" class="play">
+                                    <img src="assets/images/icons/pause.svg" alt="" class="pause">
+                                </button>
+                                <button class="icon sound">
+                                    <img class="sound-on" src="assets/images/icons/sound.svg" alt="">
+                                    <img class="sound-off" src="assets/images/icons/sound-off.svg" alt="">
+                                </button>
+                            </div>
                         </div>
                         <div class="swiper-slide">
-                            <video src="assets/video/reels.mp4"></video>
-                            <button class="video-mute-button">
-                                <!-- Иконка звука включена -->
-
-                                <svg class="icon-sound-on" width="18" height="18" viewBox="0 0 18 18" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M8.25 3.75L4.5 6.75H1.5V11.25H4.5L8.25 14.25V3.75Z" stroke="white"
-                                        stroke-linecap="round" stroke-linejoin="round" />
-                                    <path
-                                        d="M14.3025 3.69751C15.7085 5.10397 16.4984 7.01128 16.4984 9.00001C16.4984 10.9887 15.7085 12.8961 14.3025 14.3025M11.655 6.34501C12.358 7.04824 12.7529 8.00189 12.7529 8.99626C12.7529 9.99063 12.358 10.9443 11.655 11.6475"
-                                        stroke="white" stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-
-                                <!-- Иконка звука выключена -->
-                                <svg class="icon-sound-off" width="21" height="18" viewBox="0 0 21 18" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <g clip-path="url(#clip0_1_66)">
-                                        <path d="M7.25001 3.75L3.50001 6.75H0.500008V11.25H3.50001L7.25001 14.25V3.75Z"
-                                            stroke="white" stroke-linecap="round" stroke-linejoin="round" />
-                                        <path d="M16.25 6.75L11.75 11.25" stroke="white" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                        <path d="M11.75 6.75L16.25 11.25" stroke="white" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                    </g>
-                                    <defs>
-                                        <clipPath id="clip0_1_66">
-                                            <rect width="19.8783" height="18" fill="white"
-                                                transform="translate(0.773933)" />
-                                        </clipPath>
-                                    </defs>
-                                </svg>
-
-                            </button>
+                            <video src="assets/video/reels3.mp4"></video>
+                            <div class="buttons">
+                                <button class="icon">
+                                    <img src="assets/images/icons/play.svg" alt="" class="play">
+                                    <img src="assets/images/icons/pause.svg" alt="" class="pause">
+                                </button>
+                                <button class="icon sound">
+                                    <img class="sound-on" src="assets/images/icons/sound.svg" alt="">
+                                    <img class="sound-off" src="assets/images/icons/sound-off.svg" alt="">
+                                </button>
+                            </div>
                         </div>
                         <div class="swiper-slide">
-                            <video src="assets/video/reels.mp4"></video>
-                            <button class="video-mute-button">
-                                <!-- Иконка звука включена -->
-
-                                <svg class="icon-sound-on" width="18" height="18" viewBox="0 0 18 18" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M8.25 3.75L4.5 6.75H1.5V11.25H4.5L8.25 14.25V3.75Z" stroke="white"
-                                        stroke-linecap="round" stroke-linejoin="round" />
-                                    <path
-                                        d="M14.3025 3.69751C15.7085 5.10397 16.4984 7.01128 16.4984 9.00001C16.4984 10.9887 15.7085 12.8961 14.3025 14.3025M11.655 6.34501C12.358 7.04824 12.7529 8.00189 12.7529 8.99626C12.7529 9.99063 12.358 10.9443 11.655 11.6475"
-                                        stroke="white" stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-
-                                <!-- Иконка звука выключена -->
-                                <svg class="icon-sound-off" width="21" height="18" viewBox="0 0 21 18" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <g clip-path="url(#clip0_1_66)">
-                                        <path d="M7.25001 3.75L3.50001 6.75H0.500008V11.25H3.50001L7.25001 14.25V3.75Z"
-                                            stroke="white" stroke-linecap="round" stroke-linejoin="round" />
-                                        <path d="M16.25 6.75L11.75 11.25" stroke="white" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                        <path d="M11.75 6.75L16.25 11.25" stroke="white" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                    </g>
-                                    <defs>
-                                        <clipPath id="clip0_1_66">
-                                            <rect width="19.8783" height="18" fill="white"
-                                                transform="translate(0.773933)" />
-                                        </clipPath>
-                                    </defs>
-                                </svg>
-
-                            </button>
+                            <video src="assets/video/reels4.mp4"></video>
+                            <div class="buttons">
+                                <button class="icon">
+                                    <img src="assets/images/icons/play.svg" alt="" class="play">
+                                    <img src="assets/images/icons/pause.svg" alt="" class="pause">
+                                </button>
+                                <button class="icon sound">
+                                    <img class="sound-on" src="assets/images/icons/sound.svg" alt="">
+                                    <img class="sound-off" src="assets/images/icons/sound-off.svg" alt="">
+                                </button>
+                            </div>
                         </div>
-                        <div class="swiper-slide">
-                            <video src="assets/video/reels.mp4"></video>
-                            <button class="video-mute-button">
-                                <!-- Иконка звука включена -->
 
-                                <svg class="icon-sound-on" width="18" height="18" viewBox="0 0 18 18" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M8.25 3.75L4.5 6.75H1.5V11.25H4.5L8.25 14.25V3.75Z" stroke="white"
-                                        stroke-linecap="round" stroke-linejoin="round" />
-                                    <path
-                                        d="M14.3025 3.69751C15.7085 5.10397 16.4984 7.01128 16.4984 9.00001C16.4984 10.9887 15.7085 12.8961 14.3025 14.3025M11.655 6.34501C12.358 7.04824 12.7529 8.00189 12.7529 8.99626C12.7529 9.99063 12.358 10.9443 11.655 11.6475"
-                                        stroke="white" stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
 
-                                <!-- Иконка звука выключена -->
-                                <svg class="icon-sound-off" width="21" height="18" viewBox="0 0 21 18" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <g clip-path="url(#clip0_1_66)">
-                                        <path d="M7.25001 3.75L3.50001 6.75H0.500008V11.25H3.50001L7.25001 14.25V3.75Z"
-                                            stroke="white" stroke-linecap="round" stroke-linejoin="round" />
-                                        <path d="M16.25 6.75L11.75 11.25" stroke="white" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                        <path d="M11.75 6.75L16.25 11.25" stroke="white" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                    </g>
-                                    <defs>
-                                        <clipPath id="clip0_1_66">
-                                            <rect width="19.8783" height="18" fill="white"
-                                                transform="translate(0.773933)" />
-                                        </clipPath>
-                                    </defs>
-                                </svg>
-
-                            </button>
-                        </div>
-                        <div class="swiper-slide">
-                            <video src="assets/video/reels.mp4"></video>
-                            <button class="video-mute-button">
-                                <!-- Иконка звука включена -->
-
-                                <svg class="icon-sound-on" width="18" height="18" viewBox="0 0 18 18" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M8.25 3.75L4.5 6.75H1.5V11.25H4.5L8.25 14.25V3.75Z" stroke="white"
-                                        stroke-linecap="round" stroke-linejoin="round" />
-                                    <path
-                                        d="M14.3025 3.69751C15.7085 5.10397 16.4984 7.01128 16.4984 9.00001C16.4984 10.9887 15.7085 12.8961 14.3025 14.3025M11.655 6.34501C12.358 7.04824 12.7529 8.00189 12.7529 8.99626C12.7529 9.99063 12.358 10.9443 11.655 11.6475"
-                                        stroke="white" stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-
-                                <!-- Иконка звука выключена -->
-                                <svg class="icon-sound-off" width="21" height="18" viewBox="0 0 21 18" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <g clip-path="url(#clip0_1_66)">
-                                        <path d="M7.25001 3.75L3.50001 6.75H0.500008V11.25H3.50001L7.25001 14.25V3.75Z"
-                                            stroke="white" stroke-linecap="round" stroke-linejoin="round" />
-                                        <path d="M16.25 6.75L11.75 11.25" stroke="white" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                        <path d="M11.75 6.75L16.25 11.25" stroke="white" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                    </g>
-                                    <defs>
-                                        <clipPath id="clip0_1_66">
-                                            <rect width="19.8783" height="18" fill="white"
-                                                transform="translate(0.773933)" />
-                                        </clipPath>
-                                    </defs>
-                                </svg>
-
-                            </button>
-                        </div>
-                        <div class="swiper-slide">
-                            <video src="assets/video/reels.mp4"></video>
-                            <button class="video-mute-button">
-                                <!-- Иконка звука включена -->
-
-                                <svg class="icon-sound-on" width="18" height="18" viewBox="0 0 18 18" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M8.25 3.75L4.5 6.75H1.5V11.25H4.5L8.25 14.25V3.75Z" stroke="white"
-                                        stroke-linecap="round" stroke-linejoin="round" />
-                                    <path
-                                        d="M14.3025 3.69751C15.7085 5.10397 16.4984 7.01128 16.4984 9.00001C16.4984 10.9887 15.7085 12.8961 14.3025 14.3025M11.655 6.34501C12.358 7.04824 12.7529 8.00189 12.7529 8.99626C12.7529 9.99063 12.358 10.9443 11.655 11.6475"
-                                        stroke="white" stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-
-                                <!-- Иконка звука выключена -->
-                                <svg class="icon-sound-off" width="21" height="18" viewBox="0 0 21 18" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <g clip-path="url(#clip0_1_66)">
-                                        <path d="M7.25001 3.75L3.50001 6.75H0.500008V11.25H3.50001L7.25001 14.25V3.75Z"
-                                            stroke="white" stroke-linecap="round" stroke-linejoin="round" />
-                                        <path d="M16.25 6.75L11.75 11.25" stroke="white" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                        <path d="M11.75 6.75L16.25 11.25" stroke="white" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                    </g>
-                                    <defs>
-                                        <clipPath id="clip0_1_66">
-                                            <rect width="19.8783" height="18" fill="white"
-                                                transform="translate(0.773933)" />
-                                        </clipPath>
-                                    </defs>
-                                </svg>
-
-                            </button>
-                        </div>
-                        <div class="swiper-slide">
-                            <video src="assets/video/reels.mp4"></video>
-                            <button class="video-mute-button">
-                                <!-- Иконка звука включена -->
-
-                                <svg class="icon-sound-on" width="18" height="18" viewBox="0 0 18 18" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M8.25 3.75L4.5 6.75H1.5V11.25H4.5L8.25 14.25V3.75Z" stroke="white"
-                                        stroke-linecap="round" stroke-linejoin="round" />
-                                    <path
-                                        d="M14.3025 3.69751C15.7085 5.10397 16.4984 7.01128 16.4984 9.00001C16.4984 10.9887 15.7085 12.8961 14.3025 14.3025M11.655 6.34501C12.358 7.04824 12.7529 8.00189 12.7529 8.99626C12.7529 9.99063 12.358 10.9443 11.655 11.6475"
-                                        stroke="white" stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-
-                                <!-- Иконка звука выключена -->
-                                <svg class="icon-sound-off" width="21" height="18" viewBox="0 0 21 18" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <g clip-path="url(#clip0_1_66)">
-                                        <path d="M7.25001 3.75L3.50001 6.75H0.500008V11.25H3.50001L7.25001 14.25V3.75Z"
-                                            stroke="white" stroke-linecap="round" stroke-linejoin="round" />
-                                        <path d="M16.25 6.75L11.75 11.25" stroke="white" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                        <path d="M11.75 6.75L16.25 11.25" stroke="white" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                    </g>
-                                    <defs>
-                                        <clipPath id="clip0_1_66">
-                                            <rect width="19.8783" height="18" fill="white"
-                                                transform="translate(0.773933)" />
-                                        </clipPath>
-                                    </defs>
-                                </svg>
-
-                            </button>
-                        </div>
 
                     </div>
 
@@ -983,13 +776,12 @@
                                             <img src="assets/images/hero/hero.png" alt="">
                                         </li>
                                     </ul>
-                                    <div class="swiper__navigation">
-                                        <div class="swiper-pagination reported-pagination"></div>
-                                        <div class="swiper-button-prev reported-button-prev"></div>
-                                        <div class="swiper-button-next reported-button-next"></div>
-                                    </div>
                                 </div>
-
+                                <div class="swiper__navigation">
+                                    <div class="swiper-pagination reported-pagination"></div>
+                                    <div class="swiper-button-prev reported-button-prev"></div>
+                                    <div class="swiper-button-next reported-button-next"></div>
+                                </div>
                             </div>
                         </div>
                         <div class="col">
@@ -999,7 +791,7 @@
                                 Each map is meticulously designed to include precise geographic details, showcasing
                                 states, capitals, major cities, and iconic National Parks.
                             </p>
-                            <ul>
+                            <ul class="regular">
                                 <li>197 (UN) Countries</li>
                                 <li>642 beautiful islands</li>
                                 <li>2,500 major cities</li>
@@ -1041,62 +833,64 @@
         <section class="gallery">
             <h2>Over 10,000 homes have been decorated with our maps.</h2>
             <div class="gallery__slider">
-                <div class="swiper" id="gallery_one">
-                    <ul class="swiper-wrapper">
-                        <li class="swiper-slide">
+                <div class="gallery__container to-right">
+                    <ul class="gallery__list">
+                        <li class="">
                             <img src="assets/images/gallery/img1.png" alt="">
                         </li>
-                        <li class="swiper-slide">
+                        <li class="">
                             <img src="assets/images/gallery/img2.png" alt="">
                         </li>
-                        <li class="swiper-slide">
+                        <li class="">
                             <img src="assets/images/gallery/img3.png" alt="">
                         </li>
-                        <li class="swiper-slide">
+                        <li class="">
                             <img src="assets/images/gallery/img4.png" alt="">
                         </li>
-                        <li class="swiper-slide">
+                        <li class="">
                             <img src="assets/images/gallery/img5.png" alt="">
                         </li>
-                        <li class="swiper-slide">
+                        <li class="">
                             <img src="assets/images/gallery/img6.png" alt="">
                         </li>
-                        <li class="swiper-slide">
-                            <img src="assets/images/gallery/img3.png" alt="">
-                        </li>
-                        <li class="swiper-slide">
-                            <img src="assets/images/gallery/img5.png" alt="">
-                        </li>
-                    </ul>
-                </div>
-                <div class="swiper" id="gallery_two">
-                    <ul class="swiper-wrapper">
-                        <li class="swiper-slide">
-                            <img src="assets/images/gallery/img5.png" alt="">
-                        </li>
-                        <li class="swiper-slide">
-                            <img src="assets/images/gallery/img6.png" alt="">
-                        </li>
-                        <li class="swiper-slide">
-                            <img src="assets/images/gallery/img3.png" alt="">
-                        </li>
-                        <li class="swiper-slide">
-                            <img src="assets/images/gallery/img1.png" alt="">
-                        </li>
-                        <li class="swiper-slide">
-                            <img src="assets/images/gallery/img5.png" alt="">
-                        </li>
-                        <li class="swiper-slide">
-                            <img src="assets/images/gallery/img2.png" alt="">
-                        </li>
-                        <li class="swiper-slide">
-                            <img src="assets/images/gallery/img3.png" alt="">
-                        </li>
-                        <li class="swiper-slide">
+                        <li class="">
                             <img src="assets/images/gallery/img4.png" alt="">
                         </li>
                     </ul>
                 </div>
+
+                <div class="gallery__container to-left">
+                    <ul class="gallery__list">
+                        <li class="">
+                            <img src="assets/images/gallery/img1.png" alt="">
+                        </li>
+                        <li class="">
+                            <img src="assets/images/gallery/img2.png" alt="">
+                        </li>
+                        <li class="">
+                            <img src="assets/images/gallery/img3.png" alt="">
+                        </li>
+                        <li class="">
+                            <img src="assets/images/gallery/img4.png" alt="">
+                        </li>
+                        <li class="">
+                            <img src="assets/images/gallery/img5.png" alt="">
+                        </li>
+                        <li class="">
+                            <img src="assets/images/gallery/img6.png" alt="">
+                        </li>
+                        <li class="">
+                            <img src="assets/images/gallery/img4.png" alt="">
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Модальное окно -->
+                <div id="modal" class="modal">
+                    <button class="icon close">&times;</button>
+                    <img class="modal-content" id="modalImage">
+                </div>
+
             </div>
         </section>
 
@@ -1426,29 +1220,40 @@
 
                             <!-- Pagination -->
                             <div class="pagination">
-                                <a class="prev page-numbers" href="#">
-                                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M3.95251 10.0942L8.04747 5.99926L3.95251 1.9043" stroke="black"
-                                            stroke-linecap="round" stroke-linejoin="round" />
-                                    </svg>
-                                </a>
-                                <a class="page-numbers" href="#">1</a>
-                                <a class="page-numbers" href="#">2</a>
-                                <a class="page-numbers current" href="#">3</a>
-                                <a class="page-numbers" href="#">4</a>
-                                <a class="page-numbers" href="#">5</a>
-                                <a class="page-numbers" href="#">6</a>
-                                <a class="page-numbers" href="#">7</a>
-                                <a class="page-numbers" href="#">8</a>
-                                <a class="next page-numbers" href="#">
-                                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M3.95251 10.0942L8.04747 5.99926L3.95251 1.9043" stroke="black"
-                                            stroke-linecap="round" stroke-linejoin="round" />
-                                    </svg>
-                                </a>
+                                <!-- Список страниц -->
+                                <ul class="pagination__list">
+                                    <li>
+                                        <a class="prev page-numbers" href="#">
+                                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M3.95251 10.0942L8.04747 5.99926L3.95251 1.9043" stroke="black"
+                                                    stroke-linecap="round" stroke-linejoin="round" />
+                                            </svg>
+                                        </a>
+                                    </li>
+                                    <li><a class="page-numbers" href="#">1</a></li>
+                                    <li><a class="page-numbers" href="#">2</a></li>
+                                    <li><span aria-current="page" class="page-numbers current">3</span></li>
+                                    <li><a class="page-numbers" href="#">4</a></li>
+                                    <li><a class="page-numbers" href="#">5</a></li>
+                                    <li><a class="page-numbers" href="#">6</a></li>
+                                    <li><a class="page-numbers" href="#">7</a></li>
+                                    <li><a class="page-numbers" href="#">8</a></li>
+                                    <li><a class="page-numbers" href="#">9</a></li>
+                                    <li><a class="page-numbers" href="#">10</a></li>
+                                    <li>
+                                        <a class="next page-numbers" href="#">
+                                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M3.95251 10.0942L8.04747 5.99926L3.95251 1.9043" stroke="black"
+                                                    stroke-linecap="round" stroke-linejoin="round" />
+                                            </svg>
+                                        </a>
+                                    </li>
+                                </ul>
                             </div>
+
+
                         </div>
                     </div>
                 </div>

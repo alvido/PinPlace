@@ -25,7 +25,7 @@
     }
 
     & .reels {
-        padding: 40px 0 30px;
+        padding: 30px 0;
 
         @include mobile {
             padding: 20px 0;
@@ -36,20 +36,16 @@
         }
     }
 
-    & .swiper {
-        height: 380px;
-
-
-    }
-
     & .swiper-slide {
+        @include flex-center;
         position: relative;
-        border-radius: 10px;
         overflow: hidden;
 
         &.swiper-slide-active {
-            & .video-mute-button {
-                display: flex;
+            & .buttons {
+                .icon {
+                    display: flex;
+                }
             }
         }
 
@@ -59,35 +55,43 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            border-radius: 10px;
         }
 
-        & .video-mute-button {
-            @include reset-button;
-            @include squere(32px);
-            @include flex-center;
-            display: none;
+        & .buttons {
+            display: flex;
+            align-items: center;
+            gap: 8px;
             position: absolute;
             left: 10px;
             bottom: 10px;
-            color: var(--color-white);
-            background: #00000099;
-            border-radius: 50%;
-            transition: all .3s ease;
 
-            & svg {
-                width: 18px;
-                height: 18px;
+            & .icon {
+                width: 32px;
+                height: 32px;
+                @include flex-center;
+                display: none;
+                color: var(--color-white);
+                background: #00000099;
+                border-radius: 50%;
                 transition: all .3s ease;
 
-                &.icon-sound-on {
-                    display: none;
+                & img {
+                    width: 20px;
+                    height: 20px;
+                    object-fit: contain;
+                    transition: all .3s ease;
+
+                    &.sound-on, &.play {
+                        display: none;
+                    }
+
+
                 }
 
-                &.icon-sound-off {}
+
+
             }
-
-
-
         }
     }
 
@@ -99,19 +103,15 @@
     }
 
     .swiper-button-next {
-        right: 25%;
+        right: 20%;
 
-        @include tablet {
-            right: 15%;
-        }
+        @include tablet {}
     }
 
     .swiper-button-prev {
-        left: 25%;
+        left: 20%;
 
-        @include tablet {
-            left: 15%;
-        }
+        @include tablet {}
     }
 }
 
@@ -204,189 +204,108 @@
 
 
 .gallery {
-    padding: 60px 0 30px;
+    margin-top: 60px;
 
     @include mobile {
-        padding: 40px 0 20px;
+        margin-top: 30px;
     }
 
     &__slider {
-        margin-top: 50px;
+        padding: 30px 0;
+    }
 
-        @include mobile {
-            margin-top: 20px;
+    &__container {
+        display: flex;
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+
+        @include hover {
+
+            &.to-right .gallery__list,
+            &.to-left .gallery__list {
+                animation-play-state: paused;
+            }
+        }
+
+
+        &.to-right {
+            justify-content: flex-end;
+
+            & .gallery__list {
+                animation: scroll-right 30s linear infinite;
+            }
+        }
+
+        &.to-left {
+
+            & .gallery__list {
+                animation: scroll-left 30s linear infinite;
+            }
         }
     }
 
-    & .swiper-slide {
-        & img {
-            height: 400px;
-            object-fit: cover;
+    &__list {
+        width: 100%;
+        display: flex;
+        align-items: center;
 
-            @include mobile {
-                height: 300px;
-            }
+        &>li {
+            flex-shrink: 0;
+            width: 100%;
+            margin: 0;
+            padding: 0;
 
             @include phone {
-                height: 200px;
+                width: calc(100% / 2);
             }
-        }
-    }
-
-    .explore {
-        position: relative;
-        margin-top: 60px;
-
-        @include mobile {
-            margin-top: 40px;
-        }
-
-        &::before {
-            content: '';
-            position: absolute;
-            top: 0px;
-            right: 25%;
-            width: 246px;
-            height: 200px;
-            z-index: -1;
-            background: url(../images/decor/explore.svg) no-repeat center / contain;
-
-            @include mobile {
-                rotate: -120deg;
-                right: auto;
-                left: 50%;
-                translate: -50% 0;
-            }
-        }
-
-        & .swiper {
-            padding: 40px 0 30px;
-
-            @include mobile {
-                padding: 20px 0;
-            }
-        }
-
-        & .swiper-slide {
-            border-radius: 10px;
-            overflow: hidden;
 
             & img {
-                height: 380px;
+                height: 200px;
                 object-fit: cover;
-            }
-        }
+                cursor: pointer;
 
-        .swiper-button-next,
-        .swiper-button-prev {
-            @include phone {
-                display: none;
-            }
-        }
-
-        .swiper-button-next {
-            right: 25%;
-
-            @include tablet {
-                right: 15%;
-            }
-        }
-
-        .swiper-button-prev {
-            left: 25%;
-
-            @include tablet {
-                left: 15%;
-            }
-        }
-    }
-
-    .maps {
-        &__list {
-            padding: 30px 0;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 60px;
-
-            @include tablet {
-                gap: 30px;
-                padding: 20px 0;
-            }
-
-            & li {
-                display: flex;
-                align-items: center;
-                gap: 50px;
-
-                @include tablet {
-                    gap: 25px;
-                }
-
-                @include mobile {
-                    flex-direction: column;
-                }
-
-                &:nth-child(even) {
-                    flex-direction: row-reverse;
-
-                    @include mobile {
-                        flex-direction: column;
-                    }
-                }
-
-                & .col {
-                    @include mobile {
-                        max-width: none;
-                        align-items: center;
-                    }
-
-
-                }
-
-                & img {
-                    width: 100%;
-                    border-radius: 15px;
-                }
-
-                & h3 {
-                    margin-bottom: 25px;
-                    @include fluid-text(32, 24);
-                    font-weight: 700;
-                    line-height: 1.2;
-                    letter-spacing: 0.25px;
-                    max-width: 420px;
-
-                    @include mobile {
-                        margin-bottom: 20px;
-                        text-align: center;
-                    }
-                }
-
-                & p {
-                    font-size: 15px;
-                    letter-spacing: 0.25px;
-
-                    @include mobile {
-                        text-align: center;
-                    }
+                @include phone {
+                    height: 150px;
                 }
             }
         }
     }
+}
 
-    .size {
 
-        & img {
-            margin: 60px 0;
-            border-radius: 20px;
+.modal {
+    display: none;
+    /* Скрыть по умолчанию */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
 
-            @include mobile {
-                margin: 30px 0;
-                border-radius: 8px;
-            }
-        }
+    &-content {
+        margin: auto;
+        display: block;
+        width: 90%;
     }
 
+    & .close {
+        width: 40px;
+        height: 40px;
+        @include flex-center;
+        position: absolute;
+        top: 40px;
+        right: 40px;
+        color: var(--color-white);
+        font-size: 40px;
+        font-weight: bold;
+        cursor: pointer;
 
+        @include phone {
+            right: 20px;
+        }
+    }
 }

@@ -283,7 +283,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  if (document.querySelector("#gallery_one")) {
+  if (document.querySelector("#gallery__one")) {
     new Swiper("#gallery_one", {
       observer: true,
       observeParents: true,
@@ -322,7 +322,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // Нижний слайдер — движение влево
-  if (document.querySelector("#gallery_two")) {
+  if (document.querySelector("#gallery__two")) {
     new Swiper("#gallery_two", {
       observer: true,
       observeParents: true,
@@ -414,40 +414,46 @@ document.addEventListener("DOMContentLoaded", function () {
         },
       },
     });
-  
+
     // Функция управления воспроизведением видео
     function handleVideoPlayback() {
-      const slides = document.querySelectorAll('#explore .swiper-slide');
+      const slides = document.querySelectorAll("#explore .swiper-slide");
       slides.forEach((slide) => {
-        const video = slide.querySelector('video');
-        const muteButton = slide.querySelector('.video-mute-button');
-  
+        const video = slide.querySelector("video");
+        const playButton = slide.querySelector(".play");
+        const pauseButton = slide.querySelector(".pause");
+
         if (video) {
           // Активное видео начинает воспроизведение
-          if (slide.classList.contains('swiper-slide-active')) {
+          if (slide.classList.contains("swiper-slide-active")) {
             video.play();
+            playButton.style.display = "none";
+            pauseButton.style.display = "block";
           } else {
             // Неактивные видео ставим на паузу
             video.pause();
             video.currentTime = 0;
+            playButton.style.display = "block";
+            pauseButton.style.display = "none";
           }
-  
-          // Убираем кнопку звука для неактивных слайдов
-          if (muteButton) {
-            muteButton.style.display = slide.classList.contains('swiper-slide-active') ? 'flex' : 'none';
-          }
+
+          // Событие, когда видео заканчивается
+          video.addEventListener("ended", () => {
+            playButton.style.display = "block";
+            pauseButton.style.display = "none";
+          });
         }
       });
     }
-  
+
     // Функция для обновления прозрачности слайдов
     function updateSlideOpacity() {
-      const slides = document.querySelectorAll('#explore .swiper-slide');
+      const slides = document.querySelectorAll("#explore .swiper-slide");
       slides.forEach((slide) => {
         if (
-          slide.classList.contains('swiper-slide-active') || 
-          slide.classList.contains('swiper-slide-prev') || 
-          slide.classList.contains('swiper-slide-next')
+          slide.classList.contains("swiper-slide-active") ||
+          slide.classList.contains("swiper-slide-prev") ||
+          slide.classList.contains("swiper-slide-next")
         ) {
           slide.style.opacity = "1"; // Полностью видимые
         } else {
@@ -455,45 +461,83 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       });
     }
-  
-    // Инициализация воспроизведения и затемнения при загрузке
-    handleVideoPlayback();
-    updateSlideOpacity();
-  
+
+    // Обработчик для кнопок воспроизведения
+    document.querySelectorAll(".swiper-slide .play").forEach((button) => {
+      button.addEventListener("click", (event) => {
+        const slide = event.target.closest(".swiper-slide");
+        const video = slide.querySelector("video");
+        const playButton = slide.querySelector(".play");
+        const pauseButton = slide.querySelector(".pause");
+
+        if (video) {
+          video.play();
+          playButton.style.display = "none";
+          pauseButton.style.display = "block";
+        }
+      });
+    });
+
+    // Обработчик для кнопок паузы
+    document.querySelectorAll(".swiper-slide .pause").forEach((button) => {
+      button.addEventListener("click", (event) => {
+        const slide = event.target.closest(".swiper-slide");
+        const video = slide.querySelector("video");
+        const playButton = slide.querySelector(".play");
+        const pauseButton = slide.querySelector(".pause");
+
+        if (video) {
+          video.pause();
+          playButton.style.display = "block";
+          pauseButton.style.display = "none";
+        }
+      });
+    });
+
     // Обработчик для кнопок звука
-    document.querySelectorAll('.video-mute-button').forEach((button) => {
-      button.addEventListener('click', (event) => {
-        const video = event.target.closest('.swiper-slide').querySelector('video');
-        const soundOnIcon = button.querySelector('.icon-sound-on');
-        const soundOffIcon = button.querySelector('.icon-sound-off');
-  
+    document.querySelectorAll(".swiper-slide .sound").forEach((button) => {
+      button.addEventListener("click", (event) => {
+        const slide = event.target.closest(".swiper-slide");
+        const video = slide.querySelector("video");
+        const soundOnIcon = button.querySelector(".sound-on");
+        const soundOffIcon = button.querySelector(".sound-off");
+
         if (video) {
           // Переключаем звук для видео
           video.muted = !video.muted;
-  
+
           // Обновляем видимость иконок
           if (video.muted) {
-            soundOnIcon.style.display = 'none';
-            soundOffIcon.style.display = 'block';
+            soundOnIcon.style.display = "none";
+            soundOffIcon.style.display = "block";
           } else {
-            soundOnIcon.style.display = 'block';
-            soundOffIcon.style.display = 'none';
+            soundOnIcon.style.display = "block";
+            soundOffIcon.style.display = "none";
           }
         }
       });
     });
-  
+
     // Событие: при загрузке страницы все видео запускаются без звука
     window.addEventListener("load", () => {
-      const videos = document.querySelectorAll('#explore video');
+      const videos = document.querySelectorAll("#explore video");
       videos.forEach((video) => {
         video.muted = true; // Отключаем звук
+
+        // Добавляем обработчик события "ended" для переключения кнопок
+        video.addEventListener("ended", () => {
+          const slide = video.closest(".swiper-slide");
+          const playButton = slide.querySelector(".play");
+          const pauseButton = slide.querySelector(".pause");
+
+          playButton.style.display = "block";
+          pauseButton.style.display = "none";
+        });
       });
       handleVideoPlayback();
       updateSlideOpacity();
     });
   }
-  
 
 
 
@@ -639,3 +683,98 @@ personalization.forEach(style => {
 });
 
 // personalization
+
+
+//gallery 
+document.addEventListener("DOMContentLoaded", () => {
+  const galleries = document.querySelectorAll(".gallery__container");
+  const modal = document.getElementById("modal");
+  const modalImg = document.getElementById("modalImage");
+  const closeBtn = modal.querySelector(".close");
+  const body = document.body;
+
+  galleries.forEach((galleryContainer) => {
+    const galleryList = galleryContainer.querySelector(".gallery__list");
+    const clonedList = galleryList.cloneNode(true); // Клонируем список
+    galleryContainer.appendChild(clonedList); // Добавляем его в контейнер
+
+    // Скрываем второй список, чтобы не было видно пробела
+    clonedList.style.visibility = "hidden";
+    clonedList.style.opacity = 0;
+
+    // Функция для обновления ширины элементов списка
+    const updateGalleryLayout = () => {
+      const containerWidth = galleryContainer.offsetWidth; // Ширина контейнера
+      let itemWidth = 100;
+
+      if (window.innerWidth >= 1024) {
+        itemWidth = containerWidth / 7; // 7 слайдов на экранах более 1024px
+      } else if (window.innerWidth >= 768) {
+        itemWidth = containerWidth / 5; // 5 слайдов на экранах от 768px до 1024px
+      } else if (window.innerWidth >= 480) {
+        itemWidth = containerWidth / 3; // 3 слайда на экранах от 480px до 768px
+      } else {
+        itemWidth = containerWidth / 2; // 2 слайда на экранах до 480px
+      }
+
+      // Обновляем ширину и позицию обоих списков
+      galleryList.style.width = `${itemWidth * galleryList.children.length}px`;
+      clonedList.style.width = `${itemWidth * clonedList.children.length}px`;
+
+      [...galleryList.children, ...clonedList.children].forEach((li) => {
+        li.style.width = `${itemWidth}px`;
+      });
+
+      // Перемещаем второй список, чтобы он был рядом с первым
+      clonedList.style.transform = `translateX(${containerWidth}px)`;
+
+      // Запускаем анимацию после небольшой задержки
+      setTimeout(() => {
+        clonedList.style.visibility = "visible"; // Делаем второй список видимым
+        clonedList.style.opacity = 1; // Плавно появляем второй список
+      }, 500); // Задержка для предотвращения "рывка"
+    };
+
+    // Запуск обновления при загрузке и изменении размера экрана
+    updateGalleryLayout();
+    window.addEventListener("resize", updateGalleryLayout);
+
+    // Открытие модального окна при клике на изображение
+    galleryContainer.querySelectorAll("img").forEach((img) => {
+      img.addEventListener("click", () => {
+        modal.style.display = "flex"; // Показать модальное окно
+        modalImg.src = img.src; // Установить источник изображения
+        body.classList.add("lock"); // Останавливаем анимацию
+        galleryContainer.querySelectorAll(".gallery__list").forEach((list) => {
+          list.style.animationPlayState = "paused"; // Остановить анимацию
+        });
+      });
+    });
+  });
+
+  // Закрытие модального окна
+  closeBtn.addEventListener("click", () => {
+    modal.style.display = "none";
+    body.classList.remove("lock"); // Возобновляем анимацию
+    galleries.forEach((galleryContainer) => {
+      galleryContainer.querySelectorAll(".gallery__list").forEach((list) => {
+        list.style.animationPlayState = "running"; // Возобновить анимацию
+      });
+    });
+  });
+
+  // Закрытие модального окна при клике вне изображения
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) {
+      modal.style.display = "none";
+      body.classList.remove("lock"); // Возобновляем анимацию
+      galleries.forEach((galleryContainer) => {
+        galleryContainer.querySelectorAll(".gallery__list").forEach((list) => {
+          list.style.animationPlayState = "running"; // Возобновить анимацию
+        });
+      });
+    }
+  });
+});
+
+//gallery 

@@ -142,7 +142,7 @@
                 border-radius: 8px;
             }
 
-            
+
         }
     }
 
@@ -156,6 +156,7 @@
 
     &__info {
         position: relative;
+        width: 100%;
 
         & .author {
             display: block;
@@ -412,15 +413,21 @@
     padding: 30px 0;
     display: flex;
     justify-content: center;
-    gap: 15px;
+    gap: 10px;
 
     @include mobile {
         padding: 20px 0;
     }
 
+
+    &__list {
+        @include flex-center;
+        gap: 10px;
+    }
+
     & .page-numbers {
-        font-size: 14px;
-        line-height: 1.28;
+        @include flex-center;
+        width: 18px;
 
         &.prev {
             & svg {

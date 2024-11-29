@@ -21,6 +21,15 @@
             max-width: none;
         }
 
+        &:first-child {
+            position: sticky;
+            top: 0;
+
+            @include tablet {
+                position: static;
+            }
+        }
+
         &:last-child {
             padding: 28px 24px;
             box-shadow: var(--shadow);
@@ -98,7 +107,7 @@
     }
 
     & .product__price {
-        margin: 30px 0;
+        margin: 20px 0;
 
         @include mobile {
             margin: 20px 0;
@@ -230,7 +239,7 @@
         }
 
         & .color-actions {
-            margin-top: 20px;
+            margin-top: 15px;
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
@@ -343,7 +352,7 @@
         }
 
         & .personalization-style {
-            margin-top: 30px;
+            margin-top: 20px;
             display: none;
 
             @include phone {
@@ -353,7 +362,7 @@
 
         & .slider {
             position: relative;
-            padding: 25px 0;
+            padding: 20px 0 25px;
 
             @include mobile {
                 padding: 20px 0;
@@ -386,7 +395,7 @@
 
         & .instructions {
             @include fluid-text (16, 14);
-            margin: 15px 0;
+            margin: 10px 0 15px;
             position: relative;
             padding-left: 20px;
 
@@ -419,11 +428,6 @@
             border: var(--border);
             border-radius: 8px;
             padding: 0 20px;
-            margin-bottom: 15px;
-
-            @include mobile {
-                margin-bottom: 10px;
-            }
 
             &::placeholder {
                 text-align: center;
@@ -436,6 +440,11 @@
 
         & .button {
             width: 100%;
+            margin-top: 20px;
+
+            @include mobile {
+                margin-top: 15px;
+            }
         }
 
         .personalization-option {
