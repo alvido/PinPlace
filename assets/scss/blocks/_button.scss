@@ -41,6 +41,7 @@
     @include reset-button;
     width: 28px;
     height: 28px;
+    color: var(--color-black);
 
     @include hover {
         color: var(--color-green);

@@ -81,4 +81,5 @@ ul.regular {
     @include fluid-text(20, 16);
     font-weight: 700;
     line-height: 1.2;
+    color: var(--color-black);
 }

@@ -695,12 +695,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   galleries.forEach((galleryContainer) => {
     const galleryList = galleryContainer.querySelector(".gallery__list");
-    const clonedList = galleryList.cloneNode(true); // Клонируем список
-    galleryContainer.appendChild(clonedList); // Добавляем его в контейнер
-
-    // Скрываем второй список, чтобы не было видно пробела
-    clonedList.style.visibility = "hidden";
-    clonedList.style.opacity = 0;
+    const clonedList = galleryContainer.querySelector(".gallery__list--clone"); // Находим второй список вручную
 
     // Функция для обновления ширины элементов списка
     const updateGalleryLayout = () => {
@@ -727,12 +722,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // Перемещаем второй список, чтобы он был рядом с первым
       clonedList.style.transform = `translateX(${containerWidth}px)`;
-
-      // Запускаем анимацию после небольшой задержки
-      setTimeout(() => {
-        clonedList.style.visibility = "visible"; // Делаем второй список видимым
-        clonedList.style.opacity = 1; // Плавно появляем второй список
-      }, 500); // Задержка для предотвращения "рывка"
     };
 
     // Запуск обновления при загрузке и изменении размера экрана
@@ -776,5 +765,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
 
 //gallery 

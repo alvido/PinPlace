@@ -4,7 +4,7 @@
     @include flex-center;
     display: none;
     position: relative;
-    z-index: 2;
+    z-index: 3;
 
     @include tablet {
         display: flex;

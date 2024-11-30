@@ -336,6 +336,7 @@ ul.regular li::before {
   font-size: clamp(16px, 1.7094017094vw, 20px);
   font-weight: 700;
   line-height: 1.2;
+  color: var(--color-black);
 }
 
 html {
@@ -521,6 +522,7 @@ h5 {
   cursor: pointer;
   width: 28px;
   height: 28px;
+  color: var(--color-black);
 }
 @media (hover: hover) {
   .icon:hover {
@@ -576,7 +578,7 @@ h5 {
           align-items: center;
   display: none;
   position: relative;
-  z-index: 2;
+  z-index: 3;
 }
 @media (max-width: 1023px) {
   .burger {
@@ -962,7 +964,7 @@ textarea:focus-visible {
     position: absolute;
     left: -100%;
     top: 0;
-    z-index: 1;
+    z-index: 2;
     width: 100%;
     height: 100vh;
     opacity: 0;
@@ -1355,9 +1357,6 @@ textarea:focus-visible {
     top: 80%;
   }
 }
-.reported h2 {
-  font-size: clamp(20px, 2.735042735vw, 32px);
-}
 .reported__list {
   position: relative;
   z-index: 1;
@@ -1551,9 +1550,7 @@ textarea:focus-visible {
   letter-spacing: 0.25px;
 }
 .reported__description p.strong {
-  font-size: clamp(12px, 1.1965811966vw, 14px);
   font-weight: 600;
-  letter-spacing: 0.25px;
 }
 .reported__description .icons {
   margin-top: 10px;
@@ -1610,7 +1607,7 @@ textarea:focus-visible {
 }
 @media (max-width: 1023px) {
   .product .slider .swiper-button-prev {
-    left: 60px;
+    left: 50px;
   }
 }
 .product .slider .swiper-button-next {
@@ -1618,7 +1615,7 @@ textarea:focus-visible {
 }
 @media (max-width: 1023px) {
   .product .slider .swiper-button-next {
-    right: 60px;
+    right: 50px;
   }
 }
 .product__list {
@@ -1784,7 +1781,7 @@ textarea:focus-visible {
 }
 @media (max-width: 560px) {
   .explore .reels {
-    padding: 20px 0 20px 16px;
+    padding: 10px 0 20px 16px;
   }
 }
 .explore .swiper-slide {
@@ -2291,7 +2288,7 @@ textarea:focus-visible {
   position: absolute;
   top: 0px;
   right: 0px;
-  font-size: clamp(10px, 1.1965811966vw, 14px);
+  font-size: clamp(12px, 1.1965811966vw, 14px);
   line-height: 1.2;
   letter-spacing: 0.25px;
 }
@@ -2308,7 +2305,7 @@ textarea:focus-visible {
   }
 }
 .reviews__info p {
-  font-size: clamp(12px, 1.1965811966vw, 14px);
+  font-size: 14px;
 }
 .reviews__images {
   margin-top: 15px;
@@ -2393,6 +2390,12 @@ textarea:focus-visible {
 @media (max-width: 1023px) {
   .reviews__stats {
     width: 100%;
+  }
+}
+@media (max-width: 767px) {
+  .reviews__stats {
+    padding: 20px;
+    border-radius: 8px;
   }
 }
 .reviews__stats img {
@@ -2488,7 +2491,7 @@ textarea:focus-visible {
 .reviews__grade li .percent {
   text-align: right;
   width: 30px;
-  font-size: 10px;
+  font-size: 12px;
   line-height: 1;
 }
 .reviews__grade li .bar {
@@ -2896,9 +2899,9 @@ textarea:focus-visible {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
   padding: 13px 20px;
   border-radius: 7px;
   text-align: center;
@@ -3154,11 +3157,11 @@ textarea:focus-visible {
 }
 .single .personalization-selector .slider {
   position: relative;
-  padding: 20px 0 25px;
+  padding: 10px 0 25px;
 }
 @media (max-width: 767px) {
   .single .personalization-selector .slider {
-    padding: 20px 0;
+    padding: 10px 0 20px;
   }
 }
 .single .personalization-selector .slider .swiper-button-prev {
