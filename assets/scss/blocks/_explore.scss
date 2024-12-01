@@ -85,6 +85,7 @@
                     height: 20px;
                     object-fit: contain;
                     transition: all .3s ease;
+                    border-radius: 0;
 
                     &.sound-on,
                     &.play {
