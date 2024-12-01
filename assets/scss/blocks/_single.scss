@@ -371,10 +371,6 @@
             .swiper-button-prev {
                 left: -12px;
 
-                @include mobile {
-                    left: 0px;
-                }
-
                 &.swiper-button-disabled {
                     display: none;
                 }
@@ -382,10 +378,6 @@
 
             .swiper-button-next {
                 right: -12px;
-
-                @include mobile {
-                    right: 0px;
-                }
 
                 &.swiper-button-disabled {
                     display: none;

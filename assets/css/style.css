@@ -3167,21 +3167,11 @@ textarea:focus-visible {
 .single .personalization-selector .slider .swiper-button-prev {
   left: -12px;
 }
-@media (max-width: 767px) {
-  .single .personalization-selector .slider .swiper-button-prev {
-    left: 0px;
-  }
-}
 .single .personalization-selector .slider .swiper-button-prev.swiper-button-disabled {
   display: none;
 }
 .single .personalization-selector .slider .swiper-button-next {
   right: -12px;
-}
-@media (max-width: 767px) {
-  .single .personalization-selector .slider .swiper-button-next {
-    right: 0px;
-  }
 }
 .single .personalization-selector .slider .swiper-button-next.swiper-button-disabled {
   display: none;
